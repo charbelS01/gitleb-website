@@ -1,11 +1,19 @@
 # GitLeb Website — Project Context
 
 ## What This Is
-Company website for **GitLeb**, a software development and automation services company based in Beirut, Lebanon. Single-page marketing site targeting potential clients.
+Company website for **GitLeb**, a **young, founder-led** software studio based in Beirut, Lebanon. **Multi-page** marketing site targeting potential clients.
+
+**Positioning & voice (important — keep the copy consistent with this):**
+- Voice: **confident, professional, outcome-focused**. Like a respected independent studio talking to a serious client. Sell capability, not biography.
+- **Lead services** on landing & services page: Websites & Custom Software (01), Process & Workflow Automation (02). Then APIs, DevOps, Cloud, AI in that order.
+- All six services are presented as full standard offerings — do **NOT** label any of them "core focus" or "expanding capabilities" or telegraph that some are stronger than others.
+- Do **NOT** write apologetic / transitional copy. Banned phrases: "young studio", "just getting started", "early-stage", "small studio", "we're new", "founder-led" (used as a hedge), "as we grow", "for now". The voice should sound like an established independent studio.
+- Do **NOT** fabricate seniority, years of experience, headcount, client logos, or specific delivered-outcome metrics. Confidence comes from precise capability claims and craft language, not invented numbers.
+- The work page presents projects as confident capability examples without disclaimers. As real engagements ship, replace/augment with them.
 
 ## Project Location
 ```
-/Users/User/Documents/GITLEB/GitLeb/
+/Users/kablo/gitleb website/
 ```
 
 ## Run Locally
@@ -16,31 +24,62 @@ npm run preview    # Preview the production build → http://localhost:4173
 ```
 
 ## Tech Stack
-- **Pure HTML/CSS/JS** — single file: `index.html`
-- **Vite** — dev server and bundler
+- **Pure HTML/CSS/JS** — no framework
+- **Vite** — dev server and bundler, configured for multi-page (rollupOptions.input)
 - **Google Fonts** — Manrope (headings) + DM Sans (body) + JetBrains Mono (code only)
-- **Deployment** — `vercel.json` configured, ready for Vercel
+- **Deployment** — `vercel.json` configured (cleanUrls enabled), ready for Vercel
+
+## File Structure
+```
+index.html      # Landing — condensed sections, links to subpages
+services.html   # Full expanded 6 services (anchored: #custom-software, #devops, #api, #cloud, #ai, #automation)
+work.html       # Full portfolio / case studies grid (6 projects)
+about.html      # Story, values, "Why GitLeb"
+process.html    # Detailed 4-step timeline + FAQ accordion
+contact.html    # Contact form (with budget field) + contact aside
+styles.css      # ALL site styles — shared across pages
+main.js         # Shared JS — navbar scroll, mobile nav, scroll reveal, FAQ, contact form
+vite.config.js  # Multi-page entry config
+vercel.json     # Hosting config — cleanUrls: true
+```
+
+**Important:** Do NOT add a `<style>` block or inline scripts back into individual pages — always edit the shared `styles.css` / `main.js`. The only inline styles allowed are one-off layout tweaks (e.g. `style="max-width:620px"`).
 
 ## Design System
 
-### Colors (Blue theme)
+### Brand palette (sampled from the GitLeb logo: cyan → blue → purple)
 ```css
---primary:       #4d89ff   /* main blue accent */
+--brand-cyan:      #4fb6ff   /* the "G" cyan */
+--brand-blue:      #4d89ff   /* mid blue, same as --primary */
+--brand-purple:    #8b5cf6   /* the "b" + git-branch icon purple */
+--brand-gradient:  linear-gradient(135deg, #4fb6ff 0%, #4d89ff 50%, #8b5cf6 100%)
+--brand-gradient-flat: linear-gradient(90deg, #4fb6ff, #4d89ff, #8b5cf6)
+```
+The brand gradient is used for: hero h1 highlighted word, all `em` accents inside headings, the primary button background, the `.logo-mark` background, and the ambient orbs (which use individual cyan/blue/purple stops with low opacity).
+
+### Base palette
+```css
+--primary:       #4d89ff   /* main blue accent — same as --brand-blue */
 --primary-dim:   rgba(77,137,255,0.09)
 --primary-glow:  rgba(77,137,255,0.45)
 --bg-base:       #020208
 --bg-surface:    #06060f
 --bg-card:       #0b0b1a
 --text-primary:  #f0f0f5
---text-secondary:#8b8ba0
---text-muted:    #44445a
+--text-secondary:#9a9ab0
+--text-muted:    #6a6a82  /* bumped from #44445a for WCAG contrast */
 ```
+
+### Logo
+- Source: `public/logo.svg` (gradient square + white git-branch icon)
+- Served at `/logo.svg` and used as the favicon on every page
+- The in-nav and in-footer mark is an inline SVG (same git-branch glyph) inside `.logo-mark`, which gets its gradient background from CSS — do not change either the SVG paths or the CSS gradient without updating the other
 
 ### Fonts
 ```css
 --font-display: 'Manrope'        /* headings, section titles */
 --font-body:    'DM Sans'        /* body text, UI labels, tags */
---font-mono:    'JetBrains Mono' /* code snippets only */
+--font-mono:    'JetBrains Mono' /* code snippets, tech glyphs */
 ```
 
 ### Spacing
@@ -48,34 +87,60 @@ npm run preview    # Preview the production build → http://localhost:4173
 - Container: `max-width: 1280px`, padding `48px` desktop → `20px` mobile
 - Base grid unit: `8px`
 
-## Page Sections (in order)
-1. **Nav** — sticky, glassmorphism on scroll, hamburger at 920px
-2. **Hero** — centered, full-viewport, badge + giant heading + stats panel + CTA
-3. **Marquee** — scrolling tech stack strip
-4. **Services** — 6 cards in 3-col grid (`#services`)
-5. **About** — 2-col: text left, values list right (`#about`)
-6. **Process** — 4 steps grid (`#process`)
-7. **Work** — 3 portfolio cards (`#work`)
-8. **Tech Stack** — 12-tile grid
-9. **Testimonials** — 3 quote cards
-10. **Contact** — form with name/email/company/service/message (`#contact`)
-11. **Footer** — brand + 3 link columns + socials
+### Reusable utilities (use these, don't reinvent)
+- `.section-title` / `.section-title.sm` — standard section headings
+- `.section-eyebrow` + `.label-tag` — eyebrow label above headings
+- `.btn .btn-primary` / `.btn-ghost` / `.btn-lg`
+- `.page-hero` — interior page hero (top of all subpages)
+- `.cta-band` — reusable bottom-of-page CTA section
+- `.svc-card` / `.svc-detail` — service cards (compact / detailed)
+- `.work-card` — case-study card
+- `.faq-item` — accordion item (JS toggles `.open` class)
+- `.reveal` + `.d1`–`.d5` — scroll-reveal animation with staggered delays
+- `.skip-link` — a11y skip-to-content link
 
-## Key JS Behaviors
-- **Custom cursor** — dot + lagging ring (hidden on mobile via CSS)
-- **Scroll reveal** — `IntersectionObserver`, `.reveal` → `.reveal.in`
-- **Sticky nav** — adds `.scrolled` class after 50px scroll
-- **Mobile nav** — hamburger toggles `.open` on `#js-mobile-nav`
-- **Contact form** — fake submit with button state feedback (wire up to backend/Formspree when ready)
-- **Reduced motion** — `prefers-reduced-motion` disables transitions + marquee
+## Landing Page Section Order (narrative-first)
+1. **Nav** — sticky, glassmorphism on scroll
+2. **Hero** — heading + honest capability strip + CTA (primary = "Start a Project")
+3. **Marquee** — tech stack strip
+4. **Services** — condensed (6 cards, "Learn more →" → services.html anchors)
+5. **Work** — 3 featured projects → work.html
+6. **Process** — condensed 4 steps → process.html
+7. **About** — short blurb + values list → about.html
+8. **CTA band** — final conversion push
+9. **Footer**
+
+## Key JS Behaviors (in main.js)
+- **Sticky nav** — adds `.scrolled` class after 50px; interior pages get `.solid` always
+- **Active nav** — uses `data-nav="<page>.html"` attribute to mark current page link
+- **Mobile nav** — hamburger toggles `.open` on `#js-mobile-nav`; Esc closes
+- **Scroll reveal** — `IntersectionObserver` adds `.in` to `.reveal` elements
+- **FAQ accordion** — `.faq-q` button toggles `.faq-item.open`
+- **Contact form** — validates inline, opens prefilled email via `mailto:` fallback. **TODO before launch:** replace mailto handler with Formspree or backend POST (see comment in main.js)
+- **Reduced motion** — `prefers-reduced-motion` disables transitions + marquee (CSS only now)
 
 ## Responsive Breakpoints
 | Breakpoint | Changes |
 |---|---|
 | `1024px` | Services/process/testimonials → 2-col |
-| `920px` | Nav → hamburger |
-| `768px` | All sections single-col, padding 80px, cursor hidden |
-| `480px` | Heading sizes reduce further |
+| `920px`  | Nav → hamburger |
+| `768px`  | All sections single-col, padding 80px |
+| `480px`  | Heading sizes reduce further |
+
+## Decisions Made (don't undo without reason)
+- **No framework** — pure HTML/CSS/JS by choice (fast, zero runtime dependencies)
+- **Multi-page** — split for SEO, focused content per page, and reduced single-scroll fatigue. Old single-page `#anchor` nav was replaced with real page URLs
+- **Shared styles.css / main.js** — single source of truth across all pages. Never duplicate styles into a page
+- **No custom cursor** — removed in v2 (was an a11y/UX liability for a B2B vendor). Don't bring it back
+- **Honest proof** — hero "stats" are capability statements, not fabricated numbers. No fake testimonials anywhere. Work page is framed as illustrative "what we love to build" examples — NOT delivered client case studies
+- **Early-stage honesty** — never claim seniority, years of experience, or invented client outcomes. Lead with Websites & Custom Software + Process Automation as core focus; everything else is "expanding capabilities"
+- **Hero primary CTA = "Start a Project"** — not "View Our Work" (sale > browse)
+- **Tech glyphs are typographic** (mono text), not emoji — emoji renders inconsistently and looks unprofessional
+- **Manrope + DM Sans** — chosen over Bricolage Grotesque (too techy) and Syne (too blocky)
+- **JetBrains Mono only for code/tech marks** — not for UI labels
+- **Blue #4d89ff** — replaced original mint green #00ff88 for professional B2B look
+- **Centered hero** — replaced left-aligned 2-col grid
+- **Vercel `rewrites` removed** — the old SPA catch-all would have broken subpages. Now uses `cleanUrls: true`
 
 ## Skills Installed (in `~/.claude/skills/`)
 All of these are active and inform design/code decisions:
@@ -90,21 +155,14 @@ All of these are active and inform design/code decisions:
 - `accesslint-audit` — WCAG 2.2 accessibility auditing
 - `git-workflow` — conventional commits, PR workflow
 
-## Decisions Made (don't undo without reason)
-- **No framework** — pure HTML/CSS/JS by choice (fast, zero dependencies in output)
-- **No terminal card in hero** — was removed because it appeared in the middle of the page on mid-size screens
-- **Manrope + DM Sans** — chosen over Bricolage Grotesque (too techy) and Syne (too blocky at large sizes)
-- **JetBrains Mono only for code** — not used in UI labels, to avoid "hacker startup" aesthetic
-- **Blue #4d89ff** — replaced original mint green #00ff88 for professional look
-- **Centered hero** — replaced left-aligned 2-col grid; stats panel sits between heading and CTA
-
 ## Hosting — Next Steps
-- `vercel.json` is ready
+- `vercel.json` configured with `cleanUrls: true` (so `/services` serves `services.html`)
 - Push repo to GitHub, connect at vercel.com, add custom domain in Vercel dashboard
-- User will provide the domain name → add DNS records accordingly
-- Contact form needs a backend or Formspree integration before going live
+- **Before launch:** wire the contact form to a real backend (Formspree, Resend, or custom). The current mailto fallback is marked with a `TODO` in `main.js`
+- **Before launch:** provide real client logos / case-study references if available
+- Social links in footer currently point to `#` — set real GitHub/LinkedIn/X URLs
 
 ## Contact Info (placeholder — update before launch)
-- Email: `hello@gitleb.com`
+- Email: `inquiries@gitleb.dev`
 - Phone: `+961 1 234 567`
 - Location: Beirut, Lebanon
