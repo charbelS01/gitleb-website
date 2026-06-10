@@ -1,200 +1,446 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — GitLeb | Start a Project</title>
-  <meta name="description" content="Tell GitLeb about your project. We respond within 24 hours with a plan, a timeline and a straight answer — no sales pitch. Based in Beirut, Lebanon.">
-  <meta name="theme-color" content="#020208">
-  <link rel="canonical" href="https://gitleb.dev/contact.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact GitLeb — Start a Project">
-  <meta property="og:description" content="Tell us about your project. We reply within 24 hours.">
-  <meta property="og:url" content="https://gitleb.dev/contact.html">
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — GitLeb | Start a Project</title>
+    <meta
+      name="description"
+      content="Tell GitLeb about your project. We respond within 24 hours with a plan, a timeline and a straight answer — no sales pitch. Based in Beirut, Lebanon."
+    />
+    <meta name="theme-color" content="#020208" />
+    <link rel="canonical" href="https://gitleb.dev/contact.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact GitLeb — Start a Project" />
+    <meta
+      property="og:description"
+      content="Tell us about your project. We reply within 24 hours."
+    />
+    <meta property="og:url" content="https://gitleb.dev/contact.html" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="grid-bg" aria-hidden="true"></div>
 
-<a href="#main" class="skip-link">Skip to content</a>
-<div class="grid-bg" aria-hidden="true"></div>
+    <nav
+      class="mobile-overlay"
+      id="js-mobile-nav"
+      aria-label="Mobile navigation"
+    >
+      <button
+        class="mobile-close-btn"
+        id="js-mobile-close"
+        aria-label="Close navigation"
+      >
+        ✕
+      </button>
+      <a href="/services.html" data-nav="services.html">Services</a>
+      <a href="/work.html" data-nav="work.html">Work</a>
+      <a href="/process.html" data-nav="process.html">Process</a>
+      <a href="/about.html" data-nav="about.html">About</a>
+      <a href="/contact.html" data-nav="contact.html">Contact</a>
+    </nav>
 
-<nav class="mobile-overlay" id="js-mobile-nav" aria-label="Mobile navigation">
-  <button class="mobile-close-btn" id="js-mobile-close" aria-label="Close navigation">✕</button>
-  <a href="/services.html" data-nav="services.html">Services</a>
-  <a href="/work.html"     data-nav="work.html">Work</a>
-  <a href="/process.html"  data-nav="process.html">Process</a>
-  <a href="/about.html"    data-nav="about.html">About</a>
-  <a href="/contact.html"  data-nav="contact.html">Contact</a>
-</nav>
-
-<header>
-  <nav id="navbar" class="solid" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="/" class="nav-logo" aria-label="GitLeb — home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5"/></svg></div>GitLeb</a>
-        <ul class="nav-links" role="list">
-          <li><a href="/services.html" data-nav="services.html">Services</a></li>
-          <li><a href="/work.html"     data-nav="work.html">Work</a></li>
-          <li><a href="/process.html"  data-nav="process.html">Process</a></li>
-          <li><a href="/about.html"    data-nav="about.html">About</a></li>
-          <li><a href="/contact.html"  data-nav="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-right">
-          <a href="mailto:inquiries@gitleb.dev" class="nav-email">inquiries@gitleb.dev</a>
-          <a href="/contact.html" class="btn btn-primary">Start a Project</a>
-          <button class="hamburger" id="js-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="js-mobile-nav"><span></span><span></span><span></span></button>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main id="main">
-
-<section class="page-hero" style="padding-bottom:40px;">
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="container">
-    <div class="page-hero-inner">
-      <div class="breadcrumb reveal"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Contact</span></div>
-      <h1 class="reveal d1">Let's build <em>something great.</em></h1>
-      <p class="reveal d2">Tell us about your project. We'll get back within 24 hours with a plan, a timeline and a straight answer — no sales pitch.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" style="padding-top:20px;">
-  <div class="container">
-    <div class="contact-grid">
-
-      <!-- Aside -->
-      <div class="contact-aside reveal">
-        <h2>Talk to an <em>engineer</em>, not a salesperson.</h2>
-        <p>Prefer email or phone? Reach us directly — or fill in the form and we'll route it to the right person.</p>
-        <div class="contact-details">
-          <a class="cd-item" href="mailto:inquiries@gitleb.dev">
-            <span class="cd-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
-            <span><span class="lbl">Email</span><br><span class="val">inquiries@gitleb.dev</span></span>
-          </a>
-          <a class="cd-item" href="tel:+9611234567">
-            <span class="cd-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-            <span><span class="lbl">Phone</span><br><span class="val">+961 1 234 567</span></span>
-          </a>
-          <div class="cd-item">
-            <span class="cd-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <span><span class="lbl">Location</span><br><span class="val">Beirut, Lebanon</span></span>
-          </div>
-          <div class="cd-item">
-            <span class="cd-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-            <span><span class="lbl">Hours</span><br><span class="val">Mon–Fri · MENA & EU overlap</span></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Form -->
-      <form class="cform reveal d1" id="contact-form" novalidate aria-label="Project inquiry form">
-        <div class="cform-grid">
-          <div class="field">
-            <label for="cf-name">Full Name <span aria-hidden="true">*</span></label>
-            <input type="text" id="cf-name" name="name" placeholder="John Smith" required aria-required="true" autocomplete="name">
-            <span class="err">Please enter your name.</span>
-          </div>
-          <div class="field">
-            <label for="cf-email">Email Address <span aria-hidden="true">*</span></label>
-            <input type="email" id="cf-email" name="email" placeholder="john@company.com" required aria-required="true" autocomplete="email">
-            <span class="err">Please enter a valid email.</span>
-          </div>
-          <div class="field">
-            <label for="cf-company">Company</label>
-            <input type="text" id="cf-company" name="company" placeholder="Your Company" autocomplete="organization">
-          </div>
-          <div class="field">
-            <label for="cf-service">Service Needed</label>
-            <select id="cf-service" name="service">
-              <option value="" disabled selected>Select a service</option>
-              <option value="software">Custom Software Development</option>
-              <option value="devops">DevOps & CI/CD Automation</option>
-              <option value="api">API Development & Integration</option>
-              <option value="cloud">Cloud Infrastructure</option>
-              <option value="ai">AI & ML Integration</option>
-              <option value="automation">Business Process Automation</option>
-              <option value="other">Other / Not Sure</option>
-            </select>
-          </div>
-          <div class="field span2">
-            <label for="cf-budget">Estimated Budget</label>
-            <select id="cf-budget" name="budget">
-              <option value="" disabled selected>Select a range (optional)</option>
-              <option value="under-10k">Under $10k</option>
-              <option value="10-25k">$10k – $25k</option>
-              <option value="25-50k">$25k – $50k</option>
-              <option value="50-100k">$50k – $100k</option>
-              <option value="100k-plus">$100k+</option>
-              <option value="unsure">Not sure yet</option>
-            </select>
-          </div>
-          <div class="field span2">
-            <label for="cf-message">Project Details <span aria-hidden="true">*</span></label>
-            <textarea id="cf-message" name="message" placeholder="Tell us about your project, timeline and goals…" required aria-required="true"></textarea>
-            <span class="err">Please tell us a little about your project.</span>
+    <header>
+      <nav id="navbar" class="solid" aria-label="Main navigation">
+        <div class="container">
+          <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="GitLeb — home"
+              ><div class="logo-mark" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7" cy="17" r="2.5" />
+                  <circle cx="17" cy="7" r="2.5" />
+                  <path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5" />
+                </svg>
+              </div>
+              GitLeb</a
+            >
+            <ul class="nav-links" role="list">
+              <li>
+                <a href="/services.html" data-nav="services.html">Services</a>
+              </li>
+              <li><a href="/work.html" data-nav="work.html">Work</a></li>
+              <li>
+                <a href="/process.html" data-nav="process.html">Process</a>
+              </li>
+              <li><a href="/about.html" data-nav="about.html">About</a></li>
+              <li>
+                <a href="/contact.html" data-nav="contact.html">Contact</a>
+              </li>
+            </ul>
+            <div class="nav-right">
+              <a href="mailto:inquiries@gitleb.dev" class="nav-email"
+                >inquiries@gitleb.dev</a
+              >
+              <a href="/contact.html" class="btn btn-primary"
+                >Start a Project</a
+              >
+              <button
+                class="hamburger"
+                id="js-hamburger"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="js-mobile-nav"
+              >
+                <span></span><span></span><span></span>
+              </button>
+            </div>
           </div>
         </div>
-        <div class="cform-footer">
-          <p class="cform-note">We respond within 24h — usually faster.</p>
-          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">Send Message →</button>
-        </div>
-      </form>
-
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo" aria-label="GitLeb home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5"/></svg></div>GitLeb</a>
-        <p>Software development and automation services. We build systems that scale and teams that ship.</p>
-      </div>
-      <nav class="footer-cols" aria-label="Footer navigation">
-        <div class="fcol"><h4>Services</h4><ul role="list">
-          <li><a href="/services.html#custom-software">Custom Software</a></li>
-          <li><a href="/services.html#devops">DevOps & CI/CD</a></li>
-          <li><a href="/services.html#api">API Development</a></li>
-          <li><a href="/services.html#cloud">Cloud Infrastructure</a></li>
-          <li><a href="/services.html#ai">AI Integration</a></li>
-          <li><a href="/services.html#automation">Process Automation</a></li>
-        </ul></div>
-        <div class="fcol"><h4>Company</h4><ul role="list">
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/work.html">Work</a></li>
-          <li><a href="/process.html">Process</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul></div>
-        <div class="fcol"><h4>Contact</h4><ul role="list">
-          <li><a href="mailto:inquiries@gitleb.dev">inquiries@gitleb.dev</a></li>
-          <li><a href="tel:+9611234567">+961 1 234 567</a></li>
-          <li><span style="color:var(--text-muted)">Beirut, Lebanon</span></li>
-        </ul></div>
       </nav>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 GitLeb. All rights reserved.</p>
-      <div class="footer-socials" aria-label="Social media">
-        <a href="#" class="soc-btn" aria-label="GitLeb on GitHub"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
-        <a href="#" class="soc-btn" aria-label="GitLeb on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" class="soc-btn" aria-label="GitLeb on X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
+    </header>
 
-<script type="module" src="/main.js"></script>
-</body>
+    <main id="main">
+      <section class="page-hero" style="padding-bottom: 40px">
+        <div class="orb orb-1" aria-hidden="true"></div>
+        <div class="container">
+          <div class="page-hero-inner">
+            <div class="breadcrumb reveal">
+              <a href="/">Home</a> <span aria-hidden="true">/</span>
+              <span>Contact</span>
+            </div>
+            <h1 class="reveal d1">Let's build <em>something great.</em></h1>
+            <p class="reveal d2">
+              Tell us about your project. We'll get back within 24 hours with a
+              plan, a timeline and a straight answer — no sales pitch.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" style="padding-top: 20px">
+        <div class="container">
+          <div class="contact-grid">
+            <!-- Aside -->
+            <div class="contact-aside reveal">
+              <h2>Talk to an <em>engineer</em>, not a salesperson.</h2>
+              <p>
+                Prefer email or phone? Reach us directly — or fill in the form
+                and we'll route it to the right person.
+              </p>
+              <div class="contact-details">
+                <a class="cd-item" href="mailto:inquiries@gitleb.dev">
+                  <span class="cd-icon" aria-hidden="true"
+                    ><svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="m22 7-10 5L2 7" /></svg
+                  ></span>
+                  <span
+                    ><span class="lbl">Email</span><br /><span class="val"
+                      >inquiries@gitleb.dev</span
+                    ></span
+                  >
+                </a>
+                <a class="cd-item" href="tel:+96176407043">
+                  <span class="cd-icon" aria-hidden="true"
+                    ><svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+                      /></svg
+                  ></span>
+                  <span
+                    ><span class="lbl">Phone</span><br /><span class="val"
+                      >+961 76 407 043</span
+                    ></span
+                  >
+                </a>
+                <div class="cd-item">
+                  <span class="cd-icon" aria-hidden="true"
+                    ><svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      />
+                      <circle cx="12" cy="10" r="3" /></svg
+                  ></span>
+                  <span
+                    ><span class="lbl">Location</span><br /><span class="val"
+                      >Beirut, Lebanon</span
+                    ></span
+                  >
+                </div>
+                <div class="cd-item">
+                  <span class="cd-icon" aria-hidden="true"
+                    ><svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" /></svg
+                  ></span>
+                  <span
+                    ><span class="lbl">Hours</span><br /><span class="val"
+                      >Mon–Fri · MENA & EU overlap</span
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <form
+              class="cform reveal d1"
+              id="contact-form"
+              novalidate
+              aria-label="Project inquiry form"
+            >
+              <div class="cform-grid">
+                <div class="field">
+                  <label for="cf-name"
+                    >Full Name <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="cf-name"
+                    name="name"
+                    placeholder="John Smith"
+                    required
+                    aria-required="true"
+                    autocomplete="name"
+                  />
+                  <span class="err">Please enter your name.</span>
+                </div>
+                <div class="field">
+                  <label for="cf-email"
+                    >Email Address <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="cf-email"
+                    name="email"
+                    placeholder="john@company.com"
+                    required
+                    aria-required="true"
+                    autocomplete="email"
+                  />
+                  <span class="err">Please enter a valid email.</span>
+                </div>
+                <div class="field">
+                  <label for="cf-company">Company</label>
+                  <input
+                    type="text"
+                    id="cf-company"
+                    name="company"
+                    placeholder="Your Company"
+                    autocomplete="organization"
+                  />
+                </div>
+                <div class="field">
+                  <label for="cf-service">Service Needed</label>
+                  <select id="cf-service" name="service">
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="software">
+                      Custom Software Development
+                    </option>
+                    <option value="devops">DevOps & CI/CD Automation</option>
+                    <option value="api">API Development & Integration</option>
+                    <option value="cloud">Cloud Infrastructure</option>
+                    <option value="ai">AI & ML Integration</option>
+                    <option value="automation">
+                      Business Process Automation
+                    </option>
+                    <option value="other">Other / Not Sure</option>
+                  </select>
+                </div>
+                <div class="field span2">
+                  <label for="cf-budget">Estimated Budget</label>
+                  <select id="cf-budget" name="budget">
+                    <option value="" disabled selected>
+                      Select a range (optional)
+                    </option>
+                    <option value="under-10k">Under $10k</option>
+                    <option value="10-25k">$10k – $25k</option>
+                    <option value="25-50k">$25k – $50k</option>
+                    <option value="50-100k">$50k – $100k</option>
+                    <option value="100k-plus">$100k+</option>
+                    <option value="unsure">Not sure yet</option>
+                  </select>
+                </div>
+                <div class="field span2">
+                  <label for="cf-message"
+                    >Project Details <span aria-hidden="true">*</span></label
+                  >
+                  <textarea
+                    id="cf-message"
+                    name="message"
+                    placeholder="Tell us about your project, timeline and goals…"
+                    required
+                    aria-required="true"
+                  ></textarea>
+                  <span class="err"
+                    >Please tell us a little about your project.</span
+                  >
+                </div>
+              </div>
+              <div class="cform-footer">
+                <p class="cform-note">
+                  We respond within 24h — usually faster.
+                </p>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg"
+                  id="submit-btn"
+                >
+                  Send Message →
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="/" class="nav-logo" aria-label="GitLeb home"
+              ><div class="logo-mark" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7" cy="17" r="2.5" />
+                  <circle cx="17" cy="7" r="2.5" />
+                  <path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5" />
+                </svg>
+              </div>
+              GitLeb</a
+            >
+            <p>
+              Software development and automation services. We build systems
+              that scale and teams that ship.
+            </p>
+          </div>
+          <nav class="footer-cols" aria-label="Footer navigation">
+            <div class="fcol">
+              <h4>Services</h4>
+              <ul role="list">
+                <li>
+                  <a href="/services.html#custom-software">Custom Software</a>
+                </li>
+                <li><a href="/services.html#devops">DevOps & CI/CD</a></li>
+                <li><a href="/services.html#api">API Development</a></li>
+                <li><a href="/services.html#cloud">Cloud Infrastructure</a></li>
+                <li><a href="/services.html#ai">AI Integration</a></li>
+                <li>
+                  <a href="/services.html#automation">Process Automation</a>
+                </li>
+              </ul>
+            </div>
+            <div class="fcol">
+              <h4>Company</h4>
+              <ul role="list">
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/work.html">Work</a></li>
+                <li><a href="/process.html">Process</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="fcol">
+              <h4>Contact</h4>
+              <ul role="list">
+                <li>
+                  <a href="mailto:inquiries@gitleb.dev">inquiries@gitleb.dev</a>
+                </li>
+                <li><a href="tel:+96176407043">+961 76 407 043</a></li>
+                <li>
+                  <span style="color: var(--text-muted)">Beirut, Lebanon</span>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 GitLeb. All rights reserved.</p>
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="soc-btn" aria-label="GitLeb on GitHub"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                /></svg
+            ></a>
+            <a href="#" class="soc-btn" aria-label="GitLeb on LinkedIn"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" /></svg
+            ></a>
+            <a href="#" class="soc-btn" aria-label="GitLeb on X (Twitter)"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>

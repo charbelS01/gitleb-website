@@ -1,213 +1,479 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Process — GitLeb | How We Work</title>
-  <meta name="description" content="GitLeb's delivery process: discovery, architecture, engineering and deploy & scale. A predictable path from idea to production, with zero surprises.">
-  <meta name="theme-color" content="#020208">
-  <link rel="canonical" href="https://gitleb.dev/process.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="How GitLeb Works — Our Process">
-  <meta property="og:description" content="Four steps from idea to production, with regular visible progress.">
-  <meta property="og:url" content="https://gitleb.dev/process.html">
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Process — GitLeb | How We Work</title>
+    <meta
+      name="description"
+      content="GitLeb's delivery process: discovery, architecture, engineering and deploy & scale. A predictable path from idea to production, with zero surprises."
+    />
+    <meta name="theme-color" content="#020208" />
+    <link rel="canonical" href="https://gitleb.dev/process.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="How GitLeb Works — Our Process" />
+    <meta
+      property="og:description"
+      content="Four steps from idea to production, with regular visible progress."
+    />
+    <meta property="og:url" content="https://gitleb.dev/process.html" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="grid-bg" aria-hidden="true"></div>
 
-<a href="#main" class="skip-link">Skip to content</a>
-<div class="grid-bg" aria-hidden="true"></div>
+    <nav
+      class="mobile-overlay"
+      id="js-mobile-nav"
+      aria-label="Mobile navigation"
+    >
+      <button
+        class="mobile-close-btn"
+        id="js-mobile-close"
+        aria-label="Close navigation"
+      >
+        ✕
+      </button>
+      <a href="/services.html" data-nav="services.html">Services</a>
+      <a href="/work.html" data-nav="work.html">Work</a>
+      <a href="/process.html" data-nav="process.html">Process</a>
+      <a href="/about.html" data-nav="about.html">About</a>
+      <a href="/contact.html" data-nav="contact.html">Contact</a>
+    </nav>
 
-<nav class="mobile-overlay" id="js-mobile-nav" aria-label="Mobile navigation">
-  <button class="mobile-close-btn" id="js-mobile-close" aria-label="Close navigation">✕</button>
-  <a href="/services.html" data-nav="services.html">Services</a>
-  <a href="/work.html"     data-nav="work.html">Work</a>
-  <a href="/process.html"  data-nav="process.html">Process</a>
-  <a href="/about.html"    data-nav="about.html">About</a>
-  <a href="/contact.html"  data-nav="contact.html">Contact</a>
-</nav>
-
-<header>
-  <nav id="navbar" class="solid" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="/" class="nav-logo" aria-label="GitLeb — home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5"/></svg></div>GitLeb</a>
-        <ul class="nav-links" role="list">
-          <li><a href="/services.html" data-nav="services.html">Services</a></li>
-          <li><a href="/work.html"     data-nav="work.html">Work</a></li>
-          <li><a href="/process.html"  data-nav="process.html">Process</a></li>
-          <li><a href="/about.html"    data-nav="about.html">About</a></li>
-          <li><a href="/contact.html"  data-nav="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-right">
-          <a href="mailto:inquiries@gitleb.dev" class="nav-email">inquiries@gitleb.dev</a>
-          <a href="/contact.html" class="btn btn-primary">Start a Project</a>
-          <button class="hamburger" id="js-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="js-mobile-nav"><span></span><span></span><span></span></button>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main id="main">
-
-<section class="page-hero">
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="container">
-    <div class="page-hero-inner">
-      <div class="breadcrumb reveal"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Process</span></div>
-      <h1 class="reveal d1">Four steps, <em>zero surprises.</em></h1>
-      <p class="reveal d2">A predictable path from idea to production. You always know what we're doing, why, and what comes next — no big-bang reveal at the end that misses the mark.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TIMELINE -->
-<section class="process" style="padding-top:24px;">
-  <div class="container">
-    <div class="timeline">
-
-      <div class="tl-step reveal">
-        <div class="tl-marker" aria-hidden="true">01</div>
-        <div class="tl-body">
-          <h3>Discovery</h3>
-          <p>We immerse ourselves in your business context, goals and constraints. We map the problem before proposing a solution — no assumptions, only clarity before we write a single line of code. You leave this phase with a shared understanding and a clear scope.</p>
-          <div class="tl-meta">
-            <span class="tl-chip"><span class="dot"></span>Stakeholder interviews</span>
-            <span class="tl-chip"><span class="dot"></span>Requirements & scope</span>
-            <span class="tl-chip"><span class="dot"></span>Success metrics</span>
+    <header>
+      <nav id="navbar" class="solid" aria-label="Main navigation">
+        <div class="container">
+          <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="GitLeb — home"
+              ><div class="logo-mark" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7" cy="17" r="2.5" />
+                  <circle cx="17" cy="7" r="2.5" />
+                  <path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5" />
+                </svg>
+              </div>
+              GitLeb</a
+            >
+            <ul class="nav-links" role="list">
+              <li>
+                <a href="/services.html" data-nav="services.html">Services</a>
+              </li>
+              <li><a href="/work.html" data-nav="work.html">Work</a></li>
+              <li>
+                <a href="/process.html" data-nav="process.html">Process</a>
+              </li>
+              <li><a href="/about.html" data-nav="about.html">About</a></li>
+              <li>
+                <a href="/contact.html" data-nav="contact.html">Contact</a>
+              </li>
+            </ul>
+            <div class="nav-right">
+              <a href="mailto:inquiries@gitleb.dev" class="nav-email"
+                >inquiries@gitleb.dev</a
+              >
+              <a href="/contact.html" class="btn btn-primary"
+                >Start a Project</a
+              >
+              <button
+                class="hamburger"
+                id="js-hamburger"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="js-mobile-nav"
+              >
+                <span></span><span></span><span></span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="tl-step reveal">
-        <div class="tl-marker" aria-hidden="true">02</div>
-        <div class="tl-body">
-          <h3>Architecture</h3>
-          <p>We design the full system before touching feature code — data models, service boundaries, infrastructure and security. The blueprint is the foundation of everything that follows, and it's where good decisions are cheapest to make. You sign off on the plan before we build.</p>
-          <div class="tl-meta">
-            <span class="tl-chip"><span class="dot"></span>System design</span>
-            <span class="tl-chip"><span class="dot"></span>Tech stack decisions</span>
-            <span class="tl-chip"><span class="dot"></span>Estimates & milestones</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-step reveal">
-        <div class="tl-marker" aria-hidden="true">03</div>
-        <div class="tl-body">
-          <h3>Engineering</h3>
-          <p>Agile sprints with regular updates and working demos. You see real, deployable progress constantly — not just a status report. Code is reviewed, tested and shipped to a staging environment continuously, so feedback happens early while change is still cheap.</p>
-          <div class="tl-meta">
-            <span class="tl-chip"><span class="dot"></span>Sprint demos</span>
-            <span class="tl-chip"><span class="dot"></span>Code review & tests</span>
-            <span class="tl-chip"><span class="dot"></span>Continuous staging</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tl-step reveal">
-        <div class="tl-marker" aria-hidden="true">04</div>
-        <div class="tl-body">
-          <h3>Deploy & Scale</h3>
-          <p>We ship to production, monitor performance and stay on board to ensure your system holds up under real-world load. Handoff includes full documentation and training, so your team can own and extend what we built. We're available for ongoing support if you want it — never required.</p>
-          <div class="tl-meta">
-            <span class="tl-chip"><span class="dot"></span>Production launch</span>
-            <span class="tl-chip"><span class="dot"></span>Monitoring & alerts</span>
-            <span class="tl-chip"><span class="dot"></span>Docs & training</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq" aria-labelledby="faq-heading">
-  <div class="container">
-    <div class="section-eyebrow reveal"><span class="label-tag">Common Questions</span></div>
-    <h2 class="section-title sm reveal d1" id="faq-heading">What working with us looks like</h2>
-    <div class="faq-list reveal d2">
-      <div class="faq-item">
-        <button class="faq-q">How do projects usually start?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-        <div class="faq-a"><p>With a conversation. You tell us the problem, we ask questions, and we come back with an honest assessment and a proposed scope — usually within a couple of days. No obligation, no hard sell.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How do you price work?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-        <div class="faq-a"><p>Fixed-scope projects are quoted up front against a clear spec. Ongoing work and team augmentation are billed on a monthly retainer. We'll recommend whichever model fits your situation — and tell you if a smaller engagement would do.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How involved do I need to be?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-        <div class="faq-a"><p>Enough to keep us aligned — typically a short weekly check-in plus async updates. We handle the engineering; you provide direction and feedback. We adapt to how your team prefers to work.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What happens after launch?<span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-        <div class="faq-a"><p>You get full documentation, tests and a handoff session so your team can own the system. If you'd like us to stay on for support or new features, we can — but you're never locked in.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="container">
-    <div class="cta-inner">
-      <h2 class="reveal">Ready when <em>you are.</em></h2>
-      <p class="reveal d1">Start with a no-pressure conversation. We'll show you exactly how we'd approach your project — and what it would take to deliver.</p>
-      <div class="cta-actions reveal d2">
-        <a href="/contact.html" class="btn btn-primary btn-lg">Start a Project</a>
-        <a href="/work.html" class="btn btn-ghost btn-lg">See Our Work ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo" aria-label="GitLeb home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5"/></svg></div>GitLeb</a>
-        <p>Software development and automation services. We build systems that scale and teams that ship.</p>
-      </div>
-      <nav class="footer-cols" aria-label="Footer navigation">
-        <div class="fcol"><h4>Services</h4><ul role="list">
-          <li><a href="/services.html#custom-software">Custom Software</a></li>
-          <li><a href="/services.html#devops">DevOps & CI/CD</a></li>
-          <li><a href="/services.html#api">API Development</a></li>
-          <li><a href="/services.html#cloud">Cloud Infrastructure</a></li>
-          <li><a href="/services.html#ai">AI Integration</a></li>
-          <li><a href="/services.html#automation">Process Automation</a></li>
-        </ul></div>
-        <div class="fcol"><h4>Company</h4><ul role="list">
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/work.html">Work</a></li>
-          <li><a href="/process.html">Process</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul></div>
-        <div class="fcol"><h4>Contact</h4><ul role="list">
-          <li><a href="mailto:inquiries@gitleb.dev">inquiries@gitleb.dev</a></li>
-          <li><a href="tel:+9611234567">+961 1 234 567</a></li>
-          <li><span style="color:var(--text-muted)">Beirut, Lebanon</span></li>
-        </ul></div>
       </nav>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 GitLeb. All rights reserved.</p>
-      <div class="footer-socials" aria-label="Social media">
-        <a href="#" class="soc-btn" aria-label="GitLeb on GitHub"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
-        <a href="#" class="soc-btn" aria-label="GitLeb on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" class="soc-btn" aria-label="GitLeb on X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
+    </header>
 
-<script type="module" src="/main.js"></script>
-</body>
+    <main id="main">
+      <section class="page-hero">
+        <div class="orb orb-1" aria-hidden="true"></div>
+        <div class="container">
+          <div class="page-hero-inner">
+            <div class="breadcrumb reveal">
+              <a href="/">Home</a> <span aria-hidden="true">/</span>
+              <span>Process</span>
+            </div>
+            <h1 class="reveal d1">Four steps, <em>zero surprises.</em></h1>
+            <p class="reveal d2">
+              A predictable path from idea to production. You always know what
+              we're doing, why, and what comes next — no big-bang reveal at the
+              end that misses the mark.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="process" style="padding-top: 24px">
+        <div class="container">
+          <div class="timeline">
+            <div class="tl-step reveal">
+              <div class="tl-marker" aria-hidden="true">01</div>
+              <div class="tl-body">
+                <h3>Discovery</h3>
+                <p>
+                  We immerse ourselves in your business context, goals and
+                  constraints. We map the problem before proposing a solution —
+                  no assumptions, only clarity before we write a single line of
+                  code. You leave this phase with a shared understanding and a
+                  clear scope.
+                </p>
+                <div class="tl-meta">
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Stakeholder interviews</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Requirements & scope</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Success metrics</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-step reveal">
+              <div class="tl-marker" aria-hidden="true">02</div>
+              <div class="tl-body">
+                <h3>Architecture</h3>
+                <p>
+                  We design the full system before touching feature code — data
+                  models, service boundaries, infrastructure and security. The
+                  blueprint is the foundation of everything that follows, and
+                  it's where good decisions are cheapest to make. You sign off
+                  on the plan before we build.
+                </p>
+                <div class="tl-meta">
+                  <span class="tl-chip"
+                    ><span class="dot"></span>System design</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Tech stack decisions</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Estimates & milestones</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-step reveal">
+              <div class="tl-marker" aria-hidden="true">03</div>
+              <div class="tl-body">
+                <h3>Engineering</h3>
+                <p>
+                  Agile sprints with regular updates and working demos. You see
+                  real, deployable progress constantly — not just a status
+                  report. Code is reviewed, tested and shipped to a staging
+                  environment continuously, so feedback happens early while
+                  change is still cheap.
+                </p>
+                <div class="tl-meta">
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Sprint demos</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Code review & tests</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Continuous staging</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-step reveal">
+              <div class="tl-marker" aria-hidden="true">04</div>
+              <div class="tl-body">
+                <h3>Deploy & Scale</h3>
+                <p>
+                  We ship to production, monitor performance and stay on board
+                  to ensure your system holds up under real-world load. Handoff
+                  includes full documentation and training, so your team can own
+                  and extend what we built. We're available for ongoing support
+                  if you want it — never required.
+                </p>
+                <div class="tl-meta">
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Production launch</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Monitoring & alerts</span
+                  >
+                  <span class="tl-chip"
+                    ><span class="dot"></span>Docs & training</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq" aria-labelledby="faq-heading">
+        <div class="container">
+          <div class="section-eyebrow reveal">
+            <span class="label-tag">Common Questions</span>
+          </div>
+          <h2 class="section-title sm reveal d1" id="faq-heading">
+            What working with us looks like
+          </h2>
+          <div class="faq-list reveal d2">
+            <div class="faq-item">
+              <button class="faq-q">
+                How do projects usually start?<span
+                  class="ic"
+                  aria-hidden="true"
+                  ><svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" /></svg
+                ></span>
+              </button>
+              <div class="faq-a">
+                <p>
+                  With a conversation. You tell us the problem, we ask
+                  questions, and we come back with an honest assessment and a
+                  proposed scope — usually within a couple of days. No
+                  obligation, no hard sell.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                How do you price work?<span class="ic" aria-hidden="true"
+                  ><svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" /></svg
+                ></span>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Fixed-scope projects are quoted up front against a clear spec.
+                  Ongoing work and team augmentation are billed on a monthly
+                  retainer. We'll recommend whichever model fits your situation
+                  — and tell you if a smaller engagement would do.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                How involved do I need to be?<span class="ic" aria-hidden="true"
+                  ><svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" /></svg
+                ></span>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Enough to keep us aligned — typically a short weekly check-in
+                  plus async updates. We handle the engineering; you provide
+                  direction and feedback. We adapt to how your team prefers to
+                  work.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                What happens after launch?<span class="ic" aria-hidden="true"
+                  ><svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" /></svg
+                ></span>
+              </button>
+              <div class="faq-a">
+                <p>
+                  You get full documentation, tests and a handoff session so
+                  your team can own the system. If you'd like us to stay on for
+                  support or new features, we can — but you're never locked in.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <div class="cta-inner">
+            <h2 class="reveal">Ready when <em>you are.</em></h2>
+            <p class="reveal d1">
+              Start with a no-pressure conversation. We'll show you exactly how
+              we'd approach your project — and what it would take to deliver.
+            </p>
+            <div class="cta-actions reveal d2">
+              <a href="/contact.html" class="btn btn-primary btn-lg"
+                >Start a Project</a
+              >
+              <a href="/work.html" class="btn btn-ghost btn-lg"
+                >See Our Work ↗</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="/" class="nav-logo" aria-label="GitLeb home"
+              ><div class="logo-mark" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7" cy="17" r="2.5" />
+                  <circle cx="17" cy="7" r="2.5" />
+                  <path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5" />
+                </svg>
+              </div>
+              GitLeb</a
+            >
+            <p>
+              Software development and automation services. We build systems
+              that scale and teams that ship.
+            </p>
+          </div>
+          <nav class="footer-cols" aria-label="Footer navigation">
+            <div class="fcol">
+              <h4>Services</h4>
+              <ul role="list">
+                <li>
+                  <a href="/services.html#custom-software">Custom Software</a>
+                </li>
+                <li><a href="/services.html#devops">DevOps & CI/CD</a></li>
+                <li><a href="/services.html#api">API Development</a></li>
+                <li><a href="/services.html#cloud">Cloud Infrastructure</a></li>
+                <li><a href="/services.html#ai">AI Integration</a></li>
+                <li>
+                  <a href="/services.html#automation">Process Automation</a>
+                </li>
+              </ul>
+            </div>
+            <div class="fcol">
+              <h4>Company</h4>
+              <ul role="list">
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/work.html">Work</a></li>
+                <li><a href="/process.html">Process</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="fcol">
+              <h4>Contact</h4>
+              <ul role="list">
+                <li>
+                  <a href="mailto:inquiries@gitleb.dev">inquiries@gitleb.dev</a>
+                </li>
+                <li><a href="tel:+96176407043">+961 76 407 043</a></li>
+                <li>
+                  <span style="color: var(--text-muted)">Beirut, Lebanon</span>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 GitLeb. All rights reserved.</p>
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="soc-btn" aria-label="GitLeb on GitHub"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                /></svg
+            ></a>
+            <a href="#" class="soc-btn" aria-label="GitLeb on LinkedIn"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" /></svg
+            ></a>
+            <a href="#" class="soc-btn" aria-label="GitLeb on X (Twitter)"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>

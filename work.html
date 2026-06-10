@@ -1,218 +1,467 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work — GitLeb | What We Build</title>
-  <meta name="description" content="The kinds of projects GitLeb builds — websites, custom web apps and workflow automation. Illustrative examples of the work we love taking on.">
-  <meta name="theme-color" content="#020208">
-  <link rel="canonical" href="https://gitleb.dev/work.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="GitLeb — What We Build">
-  <meta property="og:description" content="Illustrative examples of the websites, apps and automations we love building.">
-  <meta property="og:url" content="https://gitleb.dev/work.html">
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work — GitLeb | What We Build</title>
+    <meta
+      name="description"
+      content="The kinds of projects GitLeb builds — websites, custom web apps and workflow automation. Illustrative examples of the work we love taking on."
+    />
+    <meta name="theme-color" content="#020208" />
+    <link rel="canonical" href="https://gitleb.dev/work.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="GitLeb — What We Build" />
+    <meta
+      property="og:description"
+      content="Illustrative examples of the websites, apps and automations we love building."
+    />
+    <meta property="og:url" content="https://gitleb.dev/work.html" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="grid-bg" aria-hidden="true"></div>
 
-<a href="#main" class="skip-link">Skip to content</a>
-<div class="grid-bg" aria-hidden="true"></div>
+    <nav
+      class="mobile-overlay"
+      id="js-mobile-nav"
+      aria-label="Mobile navigation"
+    >
+      <button
+        class="mobile-close-btn"
+        id="js-mobile-close"
+        aria-label="Close navigation"
+      >
+        ✕
+      </button>
+      <a href="/services.html" data-nav="services.html">Services</a>
+      <a href="/work.html" data-nav="work.html">Work</a>
+      <a href="/process.html" data-nav="process.html">Process</a>
+      <a href="/about.html" data-nav="about.html">About</a>
+      <a href="/contact.html" data-nav="contact.html">Contact</a>
+    </nav>
 
-<nav class="mobile-overlay" id="js-mobile-nav" aria-label="Mobile navigation">
-  <button class="mobile-close-btn" id="js-mobile-close" aria-label="Close navigation">✕</button>
-  <a href="/services.html" data-nav="services.html">Services</a>
-  <a href="/work.html"     data-nav="work.html">Work</a>
-  <a href="/process.html"  data-nav="process.html">Process</a>
-  <a href="/about.html"    data-nav="about.html">About</a>
-  <a href="/contact.html"  data-nav="contact.html">Contact</a>
-</nav>
-
-<header>
-  <nav id="navbar" class="solid" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="/" class="nav-logo" aria-label="GitLeb — home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5"/></svg></div>GitLeb</a>
-        <ul class="nav-links" role="list">
-          <li><a href="/services.html" data-nav="services.html">Services</a></li>
-          <li><a href="/work.html"     data-nav="work.html">Work</a></li>
-          <li><a href="/process.html"  data-nav="process.html">Process</a></li>
-          <li><a href="/about.html"    data-nav="about.html">About</a></li>
-          <li><a href="/contact.html"  data-nav="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-right">
-          <a href="mailto:inquiries@gitleb.dev" class="nav-email">inquiries@gitleb.dev</a>
-          <a href="/contact.html" class="btn btn-primary">Start a Project</a>
-          <button class="hamburger" id="js-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="js-mobile-nav"><span></span><span></span><span></span></button>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main id="main">
-
-<section class="page-hero">
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="container">
-    <div class="page-hero-inner">
-      <div class="breadcrumb reveal"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Work</span></div>
-      <h1 class="reveal d1">Selected <em>work.</em></h1>
-      <p class="reveal d2">Engagements across our core practice areas — websites engineered for conversion, custom platforms built to scale, and automation systems that compound returns over time. Every project run end-to-end.</p>
-    </div>
-  </div>
-</section>
-
-<section class="work plain" style="padding-top:40px;">
-  <div class="container">
-    <div class="work-grid">
-
-      <article class="work-card reveal" id="inventory-engine">
-        <div class="wc-visual wv-1" aria-hidden="true"><div class="wc-grid"></div><span class="wc-badge">SaaS Platform</span></div>
-        <div class="wc-body">
-          <div class="wc-cat">E-Commerce Automation</div>
-          <h3 class="wc-title">Multi-Marketplace Inventory Engine</h3>
-          <p class="wc-desc">End-to-end automation syncing inventory across five sales platforms in real time, eliminating overselling and manual reconciliation.</p>
-          <div class="wc-metrics">
-            <div class="wc-metric"><div class="mv">~90%</div><div class="ml">Less manual work</div></div>
-            <div class="wc-metric"><div class="mv">5</div><div class="ml">Platforms synced</div></div>
+    <header>
+      <nav id="navbar" class="solid" aria-label="Main navigation">
+        <div class="container">
+          <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="GitLeb — home"
+              ><div class="logo-mark" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7" cy="17" r="2.5" />
+                  <circle cx="17" cy="7" r="2.5" />
+                  <path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5" />
+                </svg>
+              </div>
+              GitLeb</a
+            >
+            <ul class="nav-links" role="list">
+              <li>
+                <a href="/services.html" data-nav="services.html">Services</a>
+              </li>
+              <li><a href="/work.html" data-nav="work.html">Work</a></li>
+              <li>
+                <a href="/process.html" data-nav="process.html">Process</a>
+              </li>
+              <li><a href="/about.html" data-nav="about.html">About</a></li>
+              <li>
+                <a href="/contact.html" data-nav="contact.html">Contact</a>
+              </li>
+            </ul>
+            <div class="nav-right">
+              <a href="mailto:inquiries@gitleb.dev" class="nav-email"
+                >inquiries@gitleb.dev</a
+              >
+              <a href="/contact.html" class="btn btn-primary"
+                >Start a Project</a
+              >
+              <button
+                class="hamburger"
+                id="js-hamburger"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="js-mobile-nav"
+              >
+                <span></span><span></span><span></span>
+              </button>
+            </div>
           </div>
-          <div class="wc-footer"><div class="wc-stack"><span class="stack-pill">Next.js</span><span class="stack-pill">Python</span><span class="stack-pill">PostgreSQL</span></div></div>
         </div>
-      </article>
-
-      <article class="work-card reveal d1" id="multi-cloud-pipeline">
-        <div class="wc-visual wv-2" aria-hidden="true"><div class="wc-grid"></div><span class="wc-badge">DevOps Platform</span></div>
-        <div class="wc-body">
-          <div class="wc-cat">Infrastructure & DevOps</div>
-          <h3 class="wc-title">Zero-Downtime Multi-Cloud Pipeline</h3>
-          <p class="wc-desc">Automated deployment system spanning AWS and GCP with blue-green rollouts, automated rollback and real-time observability.</p>
-          <div class="wc-metrics">
-            <div class="wc-metric"><div class="mv">0</div><div class="ml">Downtime deploys</div></div>
-            <div class="wc-metric"><div class="mv">2</div><div class="ml">Clouds, one pipeline</div></div>
-          </div>
-          <div class="wc-footer"><div class="wc-stack"><span class="stack-pill">Kubernetes</span><span class="stack-pill">Terraform</span><span class="stack-pill">AWS</span></div></div>
-        </div>
-      </article>
-
-      <article class="work-card reveal d2" id="support-engine">
-        <div class="wc-visual wv-3" aria-hidden="true"><div class="wc-grid"></div><span class="wc-badge">AI Application</span></div>
-        <div class="wc-body">
-          <div class="wc-cat">AI Integration</div>
-          <h3 class="wc-title">LLM-Powered Support Engine</h3>
-          <p class="wc-desc">AI support system that resolves routine tickets without human intervention, with context-aware escalation and sentiment analysis.</p>
-          <div class="wc-metrics">
-            <div class="wc-metric"><div class="mv">Auto</div><div class="ml">First-line triage</div></div>
-            <div class="wc-metric"><div class="mv">24/7</div><div class="ml">Coverage</div></div>
-          </div>
-          <div class="wc-footer"><div class="wc-stack"><span class="stack-pill">LangChain</span><span class="stack-pill">FastAPI</span><span class="stack-pill">Redis</span></div></div>
-        </div>
-      </article>
-
-      <article class="work-card reveal" id="fintech-dashboard">
-        <div class="wc-visual wv-4" aria-hidden="true"><div class="wc-grid"></div><span class="wc-badge">Web App</span></div>
-        <div class="wc-body">
-          <div class="wc-cat">FinTech</div>
-          <h3 class="wc-title">Real-Time Reconciliation Dashboard</h3>
-          <p class="wc-desc">A finance ops dashboard that ingests transactions from multiple providers and flags mismatches the moment they occur.</p>
-          <div class="wc-metrics">
-            <div class="wc-metric"><div class="mv">Live</div><div class="ml">Transaction feed</div></div>
-            <div class="wc-metric"><div class="mv">Auto</div><div class="ml">Mismatch alerts</div></div>
-          </div>
-          <div class="wc-footer"><div class="wc-stack"><span class="stack-pill">React</span><span class="stack-pill">Node.js</span><span class="stack-pill">GraphQL</span></div></div>
-        </div>
-      </article>
-
-      <article class="work-card reveal d1" id="data-pipeline">
-        <div class="wc-visual wv-5" aria-hidden="true"><div class="wc-grid"></div><span class="wc-badge">Data Platform</span></div>
-        <div class="wc-body">
-          <div class="wc-cat">Process Automation</div>
-          <h3 class="wc-title">Automated Reporting Pipeline</h3>
-          <p class="wc-desc">Replaced a fragile spreadsheet workflow with a scheduled data pipeline that delivers clean reports to stakeholders automatically.</p>
-          <div class="wc-metrics">
-            <div class="wc-metric"><div class="mv">Daily</div><div class="ml">Hands-off reports</div></div>
-            <div class="wc-metric"><div class="mv">1-click</div><div class="ml">Was hours of work</div></div>
-          </div>
-          <div class="wc-footer"><div class="wc-stack"><span class="stack-pill">Python</span><span class="stack-pill">Airflow</span><span class="stack-pill">PostgreSQL</span></div></div>
-        </div>
-      </article>
-
-      <article class="work-card reveal d2" id="b2b-portal">
-        <div class="wc-visual wv-6" aria-hidden="true"><div class="wc-grid"></div><span class="wc-badge">Platform</span></div>
-        <div class="wc-body">
-          <div class="wc-cat">Custom Software</div>
-          <h3 class="wc-title">B2B Customer Portal</h3>
-          <p class="wc-desc">A self-service portal letting enterprise customers manage orders, invoices and support in one place — cutting inbound requests significantly.</p>
-          <div class="wc-metrics">
-            <div class="wc-metric"><div class="mv">Self</div><div class="ml">Service first</div></div>
-            <div class="wc-metric"><div class="mv">SSO</div><div class="ml">Enterprise auth</div></div>
-          </div>
-          <div class="wc-footer"><div class="wc-stack"><span class="stack-pill">Next.js</span><span class="stack-pill">TypeScript</span><span class="stack-pill">AWS</span></div></div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="container">
-    <div class="cta-inner">
-      <h2 class="reveal">Have a project in mind? <em>Let's scope it.</em></h2>
-      <p class="reveal d1">Share your goals and constraints — we'll come back with an honest plan and timeline within 24 hours.</p>
-      <div class="cta-actions reveal d2">
-        <a href="/contact.html" class="btn btn-primary btn-lg">Start a Project</a>
-        <a href="/process.html" class="btn btn-ghost btn-lg">How We Work ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo" aria-label="GitLeb home"><div class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="17" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5"/></svg></div>GitLeb</a>
-        <p>Software development and automation services. We build systems that scale and teams that ship.</p>
-      </div>
-      <nav class="footer-cols" aria-label="Footer navigation">
-        <div class="fcol"><h4>Services</h4><ul role="list">
-          <li><a href="/services.html#custom-software">Custom Software</a></li>
-          <li><a href="/services.html#devops">DevOps & CI/CD</a></li>
-          <li><a href="/services.html#api">API Development</a></li>
-          <li><a href="/services.html#cloud">Cloud Infrastructure</a></li>
-          <li><a href="/services.html#ai">AI Integration</a></li>
-          <li><a href="/services.html#automation">Process Automation</a></li>
-        </ul></div>
-        <div class="fcol"><h4>Company</h4><ul role="list">
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/work.html">Work</a></li>
-          <li><a href="/process.html">Process</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul></div>
-        <div class="fcol"><h4>Contact</h4><ul role="list">
-          <li><a href="mailto:inquiries@gitleb.dev">inquiries@gitleb.dev</a></li>
-          <li><a href="tel:+9611234567">+961 1 234 567</a></li>
-          <li><span style="color:var(--text-muted)">Beirut, Lebanon</span></li>
-        </ul></div>
       </nav>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 GitLeb. All rights reserved.</p>
-      <div class="footer-socials" aria-label="Social media">
-        <a href="#" class="soc-btn" aria-label="GitLeb on GitHub"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
-        <a href="#" class="soc-btn" aria-label="GitLeb on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        <a href="#" class="soc-btn" aria-label="GitLeb on X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
+    </header>
 
-<script type="module" src="/main.js"></script>
-</body>
+    <main id="main">
+      <section class="page-hero">
+        <div class="orb orb-1" aria-hidden="true"></div>
+        <div class="container">
+          <div class="page-hero-inner">
+            <div class="breadcrumb reveal">
+              <a href="/">Home</a> <span aria-hidden="true">/</span>
+              <span>Work</span>
+            </div>
+            <h1 class="reveal d1">Selected <em>work.</em></h1>
+            <p class="reveal d2">
+              Engagements across our core practice areas — websites engineered
+              for conversion, custom platforms built to scale, and automation
+              systems that compound returns over time. Every project run
+              end-to-end.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="work plain" style="padding-top: 40px">
+        <div class="container">
+          <div class="work-grid">
+            <article class="work-card reveal" id="inventory-engine">
+              <div class="wc-visual wv-1" aria-hidden="true">
+                <div class="wc-grid"></div>
+                <span class="wc-badge">SaaS Platform</span>
+              </div>
+              <div class="wc-body">
+                <div class="wc-cat">E-Commerce Automation</div>
+                <h3 class="wc-title">Multi-Marketplace Inventory Engine</h3>
+                <p class="wc-desc">
+                  End-to-end automation syncing inventory across five sales
+                  platforms in real time, eliminating overselling and manual
+                  reconciliation.
+                </p>
+                <div class="wc-metrics">
+                  <div class="wc-metric">
+                    <div class="mv">~90%</div>
+                    <div class="ml">Less manual work</div>
+                  </div>
+                  <div class="wc-metric">
+                    <div class="mv">5</div>
+                    <div class="ml">Platforms synced</div>
+                  </div>
+                </div>
+                <div class="wc-footer">
+                  <div class="wc-stack">
+                    <span class="stack-pill">Next.js</span
+                    ><span class="stack-pill">Python</span
+                    ><span class="stack-pill">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card reveal d1" id="multi-cloud-pipeline">
+              <div class="wc-visual wv-2" aria-hidden="true">
+                <div class="wc-grid"></div>
+                <span class="wc-badge">DevOps Platform</span>
+              </div>
+              <div class="wc-body">
+                <div class="wc-cat">Infrastructure & DevOps</div>
+                <h3 class="wc-title">Zero-Downtime Multi-Cloud Pipeline</h3>
+                <p class="wc-desc">
+                  Automated deployment system spanning AWS and GCP with
+                  blue-green rollouts, automated rollback and real-time
+                  observability.
+                </p>
+                <div class="wc-metrics">
+                  <div class="wc-metric">
+                    <div class="mv">0</div>
+                    <div class="ml">Downtime deploys</div>
+                  </div>
+                  <div class="wc-metric">
+                    <div class="mv">2</div>
+                    <div class="ml">Clouds, one pipeline</div>
+                  </div>
+                </div>
+                <div class="wc-footer">
+                  <div class="wc-stack">
+                    <span class="stack-pill">Kubernetes</span
+                    ><span class="stack-pill">Terraform</span
+                    ><span class="stack-pill">AWS</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card reveal d2" id="support-engine">
+              <div class="wc-visual wv-3" aria-hidden="true">
+                <div class="wc-grid"></div>
+                <span class="wc-badge">AI Application</span>
+              </div>
+              <div class="wc-body">
+                <div class="wc-cat">AI Integration</div>
+                <h3 class="wc-title">LLM-Powered Support Engine</h3>
+                <p class="wc-desc">
+                  AI support system that resolves routine tickets without human
+                  intervention, with context-aware escalation and sentiment
+                  analysis.
+                </p>
+                <div class="wc-metrics">
+                  <div class="wc-metric">
+                    <div class="mv">Auto</div>
+                    <div class="ml">First-line triage</div>
+                  </div>
+                  <div class="wc-metric">
+                    <div class="mv">24/7</div>
+                    <div class="ml">Coverage</div>
+                  </div>
+                </div>
+                <div class="wc-footer">
+                  <div class="wc-stack">
+                    <span class="stack-pill">LangChain</span
+                    ><span class="stack-pill">FastAPI</span
+                    ><span class="stack-pill">Redis</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card reveal" id="fintech-dashboard">
+              <div class="wc-visual wv-4" aria-hidden="true">
+                <div class="wc-grid"></div>
+                <span class="wc-badge">Web App</span>
+              </div>
+              <div class="wc-body">
+                <div class="wc-cat">FinTech</div>
+                <h3 class="wc-title">Real-Time Reconciliation Dashboard</h3>
+                <p class="wc-desc">
+                  A finance ops dashboard that ingests transactions from
+                  multiple providers and flags mismatches the moment they occur.
+                </p>
+                <div class="wc-metrics">
+                  <div class="wc-metric">
+                    <div class="mv">Live</div>
+                    <div class="ml">Transaction feed</div>
+                  </div>
+                  <div class="wc-metric">
+                    <div class="mv">Auto</div>
+                    <div class="ml">Mismatch alerts</div>
+                  </div>
+                </div>
+                <div class="wc-footer">
+                  <div class="wc-stack">
+                    <span class="stack-pill">React</span
+                    ><span class="stack-pill">Node.js</span
+                    ><span class="stack-pill">GraphQL</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card reveal d1" id="data-pipeline">
+              <div class="wc-visual wv-5" aria-hidden="true">
+                <div class="wc-grid"></div>
+                <span class="wc-badge">Data Platform</span>
+              </div>
+              <div class="wc-body">
+                <div class="wc-cat">Process Automation</div>
+                <h3 class="wc-title">Automated Reporting Pipeline</h3>
+                <p class="wc-desc">
+                  Replaced a fragile spreadsheet workflow with a scheduled data
+                  pipeline that delivers clean reports to stakeholders
+                  automatically.
+                </p>
+                <div class="wc-metrics">
+                  <div class="wc-metric">
+                    <div class="mv">Daily</div>
+                    <div class="ml">Hands-off reports</div>
+                  </div>
+                  <div class="wc-metric">
+                    <div class="mv">1-click</div>
+                    <div class="ml">Was hours of work</div>
+                  </div>
+                </div>
+                <div class="wc-footer">
+                  <div class="wc-stack">
+                    <span class="stack-pill">Python</span
+                    ><span class="stack-pill">Airflow</span
+                    ><span class="stack-pill">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="work-card reveal d2" id="b2b-portal">
+              <div class="wc-visual wv-6" aria-hidden="true">
+                <div class="wc-grid"></div>
+                <span class="wc-badge">Platform</span>
+              </div>
+              <div class="wc-body">
+                <div class="wc-cat">Custom Software</div>
+                <h3 class="wc-title">B2B Customer Portal</h3>
+                <p class="wc-desc">
+                  A self-service portal letting enterprise customers manage
+                  orders, invoices and support in one place — cutting inbound
+                  requests significantly.
+                </p>
+                <div class="wc-metrics">
+                  <div class="wc-metric">
+                    <div class="mv">Self</div>
+                    <div class="ml">Service first</div>
+                  </div>
+                  <div class="wc-metric">
+                    <div class="mv">SSO</div>
+                    <div class="ml">Enterprise auth</div>
+                  </div>
+                </div>
+                <div class="wc-footer">
+                  <div class="wc-stack">
+                    <span class="stack-pill">Next.js</span
+                    ><span class="stack-pill">TypeScript</span
+                    ><span class="stack-pill">AWS</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <div class="cta-inner">
+            <h2 class="reveal">
+              Have a project in mind? <em>Let's scope it.</em>
+            </h2>
+            <p class="reveal d1">
+              Share your goals and constraints — we'll come back with an honest
+              plan and timeline within 24 hours.
+            </p>
+            <div class="cta-actions reveal d2">
+              <a href="/contact.html" class="btn btn-primary btn-lg"
+                >Start a Project</a
+              >
+              <a href="/process.html" class="btn btn-ghost btn-lg"
+                >How We Work ↗</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="/" class="nav-logo" aria-label="GitLeb home"
+              ><div class="logo-mark" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="7" cy="17" r="2.5" />
+                  <circle cx="17" cy="7" r="2.5" />
+                  <path d="M7 14.5 V11 a4 4 0 0 1 4 -4 H14.5" />
+                </svg>
+              </div>
+              GitLeb</a
+            >
+            <p>
+              Software development and automation services. We build systems
+              that scale and teams that ship.
+            </p>
+          </div>
+          <nav class="footer-cols" aria-label="Footer navigation">
+            <div class="fcol">
+              <h4>Services</h4>
+              <ul role="list">
+                <li>
+                  <a href="/services.html#custom-software">Custom Software</a>
+                </li>
+                <li><a href="/services.html#devops">DevOps & CI/CD</a></li>
+                <li><a href="/services.html#api">API Development</a></li>
+                <li><a href="/services.html#cloud">Cloud Infrastructure</a></li>
+                <li><a href="/services.html#ai">AI Integration</a></li>
+                <li>
+                  <a href="/services.html#automation">Process Automation</a>
+                </li>
+              </ul>
+            </div>
+            <div class="fcol">
+              <h4>Company</h4>
+              <ul role="list">
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/work.html">Work</a></li>
+                <li><a href="/process.html">Process</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="fcol">
+              <h4>Contact</h4>
+              <ul role="list">
+                <li>
+                  <a href="mailto:inquiries@gitleb.dev">inquiries@gitleb.dev</a>
+                </li>
+                <li><a href="tel:+96176407043">+961 76 407 043</a></li>
+                <li>
+                  <span style="color: var(--text-muted)">Beirut, Lebanon</span>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 GitLeb. All rights reserved.</p>
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="soc-btn" aria-label="GitLeb on GitHub"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                /></svg
+            ></a>
+            <a href="#" class="soc-btn" aria-label="GitLeb on LinkedIn"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" /></svg
+            ></a>
+            <a href="#" class="soc-btn" aria-label="GitLeb on X (Twitter)"
+              ><svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>
