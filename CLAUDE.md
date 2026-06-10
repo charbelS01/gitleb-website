@@ -1,7 +1,7 @@
 # GitLeb Website — Project Context
 
 ## What This Is
-Company website for **GitLeb**, a **young, founder-led** software studio based in Beirut, Lebanon. **Multi-page** marketing site targeting potential clients.
+Company website for **GitLeb**, a **young, founder-led** software studio based in Jbeil, Lebanon. **Multi-page** marketing site targeting potential clients.
 
 **Positioning & voice (important — keep the copy consistent with this):**
 - Voice: **confident, professional, outcome-focused**. Like a respected independent studio talking to a serious client. Sell capability, not biography.
@@ -165,4 +165,4 @@ All of these are active and inform design/code decisions:
 ## Contact Info (placeholder — update before launch)
 - Email: `inquiries@gitleb.dev`
 - Phone: `+961 1 234 567`
-- Location: Beirut, Lebanon
+- Location: Jbeil, Lebanon

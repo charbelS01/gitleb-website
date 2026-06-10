@@ -75,6 +75,19 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
+/* ── Meta Pixel Lead-event helper ── */
+const trackLead = (source) => {
+  if (typeof window.fbq === 'function') {
+    window.fbq('track', 'Lead', { content_name: source });
+  }
+};
+
+/* ── WhatsApp FAB: fire Pixel Lead on click ── */
+const waBtn = document.getElementById('js-whatsapp');
+if (waBtn) {
+  waBtn.addEventListener('click', () => trackLead('WhatsApp'));
+}
+
 /* ── Contact form ──
    No backend yet. We validate, then open the user's email client
    with a prefilled message (mailto fallback).
@@ -113,6 +126,8 @@ if (form) {
       form.querySelector('.field.invalid input, .field.invalid textarea')?.focus();
       return;
     }
+
+    trackLead('Contact Form');
 
     const company = form.querySelector('#cf-company');
     const service = form.querySelector('#cf-service');
