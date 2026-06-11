@@ -75,26 +75,25 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-/* ── Meta Pixel Lead-event helper ── */
-const trackLead = (source) => {
-  if (typeof window.fbq === 'function') {
-    window.fbq('track', 'Lead', { content_name: source });
-  }
-};
-
-/* ── WhatsApp FAB: fire Pixel Lead on click ── */
-const waBtn = document.getElementById('js-whatsapp');
-if (waBtn) {
-  waBtn.addEventListener('click', () => trackLead('WhatsApp'));
-}
+/* ── WhatsApp clicks: fire Pixel custom event ──
+   Targets any wa.me / whatsapp.com link site-wide via trackCustom,
+   so audiences and ad optimisation can use WhatsApp intent.
+*/
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function (el) {
+  el.addEventListener('click', function () {
+    if (window.fbq) { fbq('trackCustom', 'WhatsApp_Click'); }
+  });
+});
 
 /* ── Contact form ──
-   No backend yet. We validate, then open the user's email client
-   with a prefilled message (mailto fallback).
-   TODO (before launch): replace the mailto handler with a real
-   submission to Formspree / your backend endpoint, e.g.
-     form.action = 'https://formspree.io/f/XXXX'; form.method = 'POST';
-   and remove the e.preventDefault() + mailto logic below.
+   Posts JSON to /api/contact. Meta Pixel 'Lead' fires ONLY on a
+   confirmed res.ok — keeps ad attribution clean.
+
+   TODO: build the /api/contact serverless endpoint (Vercel function
+   that emails inquiries@gitleb.dev via Resend / SendGrid / etc).
+   Until that ships, the catch block falls back to opening the user's
+   email client so the form stays usable. The fallback intentionally
+   does NOT fire Lead — only confirmed backend success counts.
 ============================================================ */
 const form = document.getElementById('contact-form');
 if (form) {
@@ -104,8 +103,18 @@ if (form) {
     const wrap = field.closest('.field');
     if (wrap) wrap.classList.toggle('invalid', on);
   };
+  const getSelectText = (sel) => sel && sel.value
+    ? sel.options[sel.selectedIndex].text
+    : '';
+  const resetBtnLater = () => setTimeout(() => {
+    if (!submitBtn) return;
+    submitBtn.textContent = 'Send Message →';
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+    submitBtn.style.background = '';
+  }, 3500);
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name    = form.querySelector('#cf-name');
@@ -127,45 +136,74 @@ if (form) {
       return;
     }
 
-    trackLead('Contact Form');
-
     const company = form.querySelector('#cf-company');
     const service = form.querySelector('#cf-service');
     const budget  = form.querySelector('#cf-budget');
 
-    const subject = `Project inquiry — ${name.value.trim()}`;
-    const bodyLines = [
-      `Name: ${name.value.trim()}`,
-      `Email: ${email.value.trim()}`,
-      company && company.value.trim() ? `Company: ${company.value.trim()}` : null,
-      service && service.value ? `Service: ${service.options[service.selectedIndex].text}` : null,
-      budget && budget.value ? `Budget: ${budget.options[budget.selectedIndex].text}` : null,
-      '',
-      'Project details:',
-      message.value.trim()
-    ].filter(Boolean);
-
-    const mailto = `mailto:inquiries@gitleb.dev?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    const formData = {
+      name:    name.value.trim(),
+      email:   email.value.trim(),
+      company: company?.value.trim() || '',
+      service: getSelectText(service),
+      budget:  getSelectText(budget),
+      message: message.value.trim(),
+    };
 
     if (submitBtn) {
-      submitBtn.textContent = 'Opening your email…';
+      submitBtn.textContent = 'Sending…';
       submitBtn.disabled = true;
       submitBtn.style.opacity = '0.7';
     }
 
-    window.location.href = mailto;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    setTimeout(() => {
-      if (submitBtn) {
-        submitBtn.textContent = '✓ Email client opened';
-        submitBtn.style.opacity = '1';
+      if (res.ok) {
+        // Meta Pixel Lead — fires only on confirmed success
+        if (typeof window !== 'undefined' && window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: formData.service,
+            content_category: formData.budget,
+          });
+        }
+        if (submitBtn) {
+          submitBtn.textContent = '✓ Message sent';
+          submitBtn.style.opacity = '1';
+        }
+        form.reset();
+        resetBtnLater();
+        return;
       }
+      throw new Error('Server returned ' + res.status);
+    } catch (err) {
+      // Fallback: open the user's email client. Lead does NOT fire here.
+      const subject = `Project inquiry — ${formData.name}`;
+      const bodyLines = [
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        formData.company ? `Company: ${formData.company}` : null,
+        formData.service ? `Service: ${formData.service}` : null,
+        formData.budget  ? `Budget: ${formData.budget}`   : null,
+        '',
+        'Project details:',
+        formData.message,
+      ].filter(Boolean);
+      const mailto = `mailto:inquiries@gitleb.dev?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+      if (submitBtn) submitBtn.textContent = 'Opening your email…';
+      window.location.href = mailto;
+
       setTimeout(() => {
         if (submitBtn) {
-          submitBtn.textContent = 'Send Message →';
-          submitBtn.disabled = false;
+          submitBtn.textContent = '✓ Email client opened';
+          submitBtn.style.opacity = '1';
         }
-      }, 3500);
-    }, 1200);
+        resetBtnLater();
+      }, 1200);
+    }
   });
 }

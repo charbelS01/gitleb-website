@@ -116,7 +116,8 @@ The brand gradient is used for: hero h1 highlighted word, all `em` accents insid
 - **Mobile nav** — hamburger toggles `.open` on `#js-mobile-nav`; Esc closes
 - **Scroll reveal** — `IntersectionObserver` adds `.in` to `.reveal` elements
 - **FAQ accordion** — `.faq-q` button toggles `.faq-item.open`
-- **Contact form** — validates inline, opens prefilled email via `mailto:` fallback. **TODO before launch:** replace mailto handler with Formspree or backend POST (see comment in main.js)
+- **Contact form** — validates inline, then POSTs JSON to `/api/contact`. **Meta Pixel `Lead` fires only on confirmed `res.ok`** (clean ad attribution). If the request fails (e.g. backend not yet built), falls back to opening a prefilled `mailto:` — the fallback intentionally does **not** fire `Lead`. **TODO:** build the `/api/contact` Vercel serverless function (Resend / SendGrid / Postmark) so Lead actually starts firing in production
+- **WhatsApp tracking** — every `a[href*="wa.me"]` / `a[href*="whatsapp.com"]` click fires `fbq('trackCustom', 'WhatsApp_Click')` site-wide so audiences and ad optimisation can use WhatsApp intent
 - **Reduced motion** — `prefers-reduced-motion` disables transitions + marquee (CSS only now)
 
 ## Responsive Breakpoints
