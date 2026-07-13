@@ -1,14 +1,14 @@
 # GitLeb Website — Project Context
 
 ## What This Is
-Company website for **GitLeb**, a **young, founder-led** software studio based in Jbeil, Lebanon. **Multi-page** marketing site targeting potential clients.
+Company website for **GitLeb**, a digital transformation & software firm based in Jbeil, Lebanon. **Multi-page** marketing site targeting potential clients — repositioned (July 2026) from dev-studio to **boutique digital transformation firm** to support $50k+ enterprise engagements.
 
 **Positioning & voice (important — keep the copy consistent with this):**
-- Voice: **confident, professional, outcome-focused**. Like a respected independent studio talking to a serious client. Sell capability, not biography.
-- **Lead services** on landing & services page: Websites & Custom Software (01), Process & Workflow Automation (02). Then APIs, DevOps, Cloud, AI in that order.
-- All six services are presented as full standard offerings — do **NOT** label any of them "core focus" or "expanding capabilities" or telegraph that some are stronger than others.
-- Do **NOT** write apologetic / transitional copy. Banned phrases: "young studio", "just getting started", "early-stage", "small studio", "we're new", "founder-led" (used as a hedge), "as we grow", "for now". The voice should sound like an established independent studio.
-- Do **NOT** fabricate seniority, years of experience, headcount, client logos, or specific delivered-outcome metrics. Confidence comes from precise capability claims and craft language, not invented numbers.
+- Voice: **confident, professional, outcome-focused**. A boutique consultancy+studio talking to executives and owners. "Advised like a consultancy, built like a studio."
+- **Service architecture (order matters):** 01 Digital Transformation Advisory (#transformation) · 02 BI & Analytics (#bi) · 03 ERP & Microsoft Dynamics 365 (#erp) · 04 Data Governance & Compliance (#governance) · 05 AI Strategy & Implementation (#ai) · 06 Websites, Software & Automation (#custom-software — also carries legacy #automation anchor).
+- Credibility anchor: co-founder Mario Sarkis's **real** track record (15+ yrs; directed the Digital Hub of a global shipping group [CMA CGM]; group IT & digital transformation for a regional enterprise; Certified Digital Transformation Officer). Reference it as written on about.html — do NOT inflate it, and do NOT name current-employer engagements as GitLeb clients.
+- Do **NOT** write apologetic / transitional copy. Banned phrases: "young studio", "just getting started", "early-stage", "small studio", "we're new", "as we grow", "for now".
+- Do **NOT** fabricate seniority, headcount, client logos, or delivered-outcome metrics. Confidence comes from precise capability claims and the founders' real history.
 - The work page presents projects as confident capability examples without disclaimers. As real engagements ship, replace/augment with them.
 
 ## Project Location
