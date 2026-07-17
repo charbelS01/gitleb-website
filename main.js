@@ -207,3 +207,89 @@ if (form) {
     }
   });
 }
+
+/* ============================================================
+   V3.1 — MOTION ENGINE
+   Aurora field, grid glow, card spotlight, magnetic buttons,
+   scroll progress, nav auto-hide.
+   All pointer effects: desktop-only, reduced-motion aware.
+============================================================ */
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  /* ---- Scroll progress hairline ---- */
+  const prog = document.createElement('div');
+  prog.className = 'scroll-progress';
+  prog.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(prog);
+  const updateProg = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+  };
+  addEventListener('scroll', updateProg, { passive: true });
+  updateProg();
+
+  /* ---- Nav auto-hide (down = hide, up = show) ---- */
+  const navEl = document.getElementById('navbar');
+  let lastY = scrollY;
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    if (navEl) {
+      if (y > 320 && y > lastY + 4) navEl.classList.add('hidden');
+      else if (y < lastY - 4 || y < 320) navEl.classList.remove('hidden');
+    }
+    lastY = y;
+  }, { passive: true });
+
+  if (reduced || !finePointer) return;   // pointer effects below this line only
+  document.body.classList.add('has-pointer');
+
+  /* ---- Aurora field: blobs drift lazily toward the cursor ---- */
+  const aurora = document.createElement('div');
+  aurora.className = 'aurora';
+  aurora.setAttribute('aria-hidden', 'true');
+  aurora.innerHTML = '<span class="a1"></span><span class="a2"></span><span class="a3"></span>';
+  document.body.prepend(aurora);
+  const blobs = [...aurora.children].map((el, i) => ({
+    el, x: 0, y: 0, f: [0.035, 0.022, 0.05][i], amp: [46, 70, 34][i]
+  }));
+
+  let mx = innerWidth / 2, my = innerHeight / 3;
+  const root = document.documentElement;
+  addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    root.style.setProperty('--mx', mx + 'px');
+    root.style.setProperty('--my', my + 'px');
+  }, { passive: true });
+
+  (function drift() {
+    const nx = (mx / innerWidth - 0.5), ny = (my / innerHeight - 0.5);
+    for (const b of blobs) {
+      b.x += (nx * b.amp - b.x) * b.f;
+      b.y += (ny * b.amp - b.y) * b.f;
+      b.el.style.transform = `translate(${b.x}px, ${b.y}px)`;
+    }
+    requestAnimationFrame(drift);
+  })();
+
+  /* ---- Card spotlight ---- */
+  document.querySelectorAll('.svc-card, .work-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--cx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--cy', (e.clientY - r.top) + 'px');
+    }, { passive: true });
+  });
+
+  /* ---- Magnetic buttons ---- */
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+      const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+      btn.style.transform = `translate(${dx * 4}px, ${dy * 3}px)`;
+    }, { passive: true });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+})();

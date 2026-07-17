@@ -45,7 +45,9 @@ vercel.json     # Hosting config — cleanUrls: true
 
 **Important:** Do NOT add a `<style>` block or inline scripts back into individual pages — always edit the shared `styles.css` / `main.js`. The only inline styles allowed are one-off layout tweaks (e.g. `style="max-width:620px"`).
 
-## Design System
+## Design System (V3 — Firm Light)
+
+Aesthetic: consultancy-grade light theme. Ink (#0d1226) on warm white (#f7f8fb); Fraunces serif for display headings; brand gradient reserved for accents (hero keyword, buttons, hairlines). Footer and CTA band are deliberate ink panels. Motion layer in main.js: cursor aurora, card spotlight, magnetic buttons, scroll progress, nav auto-hide — all gated on pointer:fine and prefers-reduced-motion.
 
 ### Brand palette (sampled from the GitLeb logo: cyan → blue → purple)
 ```css

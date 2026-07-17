@@ -1504,3 +1504,135 @@ input, textarea, select {
 }
 
 /* Work-card visuals keep their dark canvases — screenshots sit on them */
+
+/* ============================================================
+   V3.1 — POLISH & MOTION LAYER
+   Contrast repairs + signature interactions.
+============================================================ */
+
+/* ---- Contrast repairs ---- */
+.proc-num { color: rgba(13,18,38,0.07); }
+.svc-card:hover .svc-icon svg { color: #fff; }
+.founder-avatar {
+  background: var(--brand-gradient);
+  color: #fff;
+}
+
+/* ---- Footer: deliberate ink panel, fully restyled ---- */
+footer {
+  background: var(--ink);
+  border-top: none;
+  position: relative;
+  padding: 72px 0 44px;
+}
+footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--brand-gradient-flat);
+}
+footer .nav-logo { color: #fff; }
+footer .footer-brand p { color: rgba(255,255,255,0.55); }
+footer .fcol h4 { color: rgba(255,255,255,0.42); }
+footer .fcol ul a, footer .fcol ul span { color: rgba(255,255,255,0.68) !important; }
+footer .fcol ul a:hover { color: #fff; }
+footer .footer-bottom { border-top: 1px solid rgba(255,255,255,0.10); }
+footer .footer-copy { color: rgba(255,255,255,0.45); }
+footer .soc-btn { border-color: rgba(255,255,255,0.22); color: rgba(255,255,255,0.7); }
+footer .soc-btn:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.06); }
+
+/* ---- Scroll progress hairline ---- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 100%;
+  background: var(--brand-gradient-flat);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 900; pointer-events: none;
+}
+
+/* ---- Aurora field (cursor-following, light-theme pastel) ---- */
+.aurora {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.aurora span {
+  position: absolute; border-radius: 50%;
+  filter: blur(90px); opacity: 0.5;
+  will-change: transform;
+}
+.aurora .a1 { width: 560px; height: 560px; background: rgba(79,182,255,0.16); top: -160px; left: 8%; }
+.aurora .a2 { width: 480px; height: 480px; background: rgba(139,92,246,0.13); top: 30%; right: 4%; }
+.aurora .a3 { width: 420px; height: 420px; background: rgba(77,137,255,0.12); bottom: -120px; left: 38%; }
+@media (prefers-reduced-motion: reduce) { .aurora span { display: none; } }
+
+/* ---- Interactive grid glow near cursor ---- */
+.grid-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(47,99,232,0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47,99,232,0.16) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(240px circle at var(--mx,50%) var(--my,-20%), black, transparent 70%);
+  mask-image: radial-gradient(240px circle at var(--mx,50%) var(--my,-20%), black, transparent 70%);
+  opacity: 0; transition: opacity .5s;
+}
+body.has-pointer .grid-bg::after { opacity: 1; }
+
+/* ---- Card spotlight (radial highlight tracks cursor per card) ---- */
+.svc-card, .work-card { position: relative; overflow: hidden; }
+.svc-card::before, .work-card .wc-body::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(320px circle at var(--cx,50%) var(--cy,50%),
+              rgba(47,99,232,0.06), transparent 65%);
+  opacity: 0; transition: opacity .35s;
+  pointer-events: none;
+}
+.svc-card:hover::before, .work-card:hover .wc-body::before { opacity: 1; }
+.svc-card > * { position: relative; z-index: 1; }
+
+/* ---- Gradient border sweep on service cards ---- */
+.svc-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--brand-gradient-flat);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .45s var(--ease);
+  opacity: 1;
+}
+.svc-card:hover::after { transform: scaleX(1); }
+
+/* ---- Reveal upgrade: blur-fade ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  filter: blur(6px);
+  transition: opacity var(--t-slow), transform var(--t-slow), filter var(--t-slow);
+}
+.reveal.in { opacity: 1; transform: none; filter: blur(0); }
+
+/* ---- Hero headline: living gradient ---- */
+.h1-grad {
+  background: linear-gradient(110deg, #4fb6ff, #4d89ff, #8b5cf6, #4d89ff, #4fb6ff);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: gradFlow 9s ease-in-out infinite;
+}
+@keyframes gradFlow {
+  0%,100% { background-position: 0% 50%; }
+  50%     { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) { .h1-grad { animation: none; } }
+
+/* ---- Magnetic buttons ---- */
+.btn { will-change: transform; transition: transform .25s var(--ease), box-shadow .3s, background .3s, border-color .3s, color .3s; }
+
+/* ---- Nav auto-hide ---- */
+nav#navbar { transition: padding .3s var(--ease), background .3s, border-color .3s, transform .35s var(--ease), box-shadow .3s; }
+nav#navbar.hidden { transform: translateY(-100%); }
+
+/* 8 services: 4-up on wide screens, no orphan cells */
+@media (min-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+  .svc-card { padding: 28px 24px; }
+}
