@@ -1,23 +1,23 @@
 /* ============================================================
-   DESIGN TOKENS — GITLEB
-   Aesthetic: Dark Terminal Precision
-   Accent: Professional Blue #4d89ff
-   Shared across all pages.
+   DESIGN TOKENS — GITLEB  (V3 — Firm Light)
+   Aesthetic: consultancy-grade light. Ink on warm white,
+   brand gradient (logo cyan→blue→purple) used with restraint.
 ============================================================ */
 :root {
-  --bg-base:         #020208;
-  --bg-surface:      #06060f;
-  --bg-card:         #0b0b1a;
-  --bg-card-hover:   #101022;
-  --border:          rgba(255,255,255,0.07);
-  --border-accent:   rgba(77,137,255,0.3);
+  --bg-base:         #f7f8fb;
+  --bg-surface:      #ffffff;
+  --bg-card:         #ffffff;
+  --bg-card-hover:   #fbfcff;
+  --border:          rgba(13,18,38,0.10);
+  --border-accent:   rgba(47,99,232,0.35);
 
-  --primary:         #4d89ff;
-  --primary-dim:     rgba(77,137,255,0.09);
-  --primary-glow:    rgba(77,137,255,0.45);
+  --ink:             #0d1226;
+  --primary:         #2f63e8;
+  --primary-dim:     rgba(47,99,232,0.07);
+  --primary-glow:    rgba(47,99,232,0.28);
   --secondary:       #1d4ed8;
-  --secondary-dim:   rgba(29,78,216,0.1);
-  --success:         #4d89ff;
+  --secondary-dim:   rgba(29,78,216,0.08);
+  --success:         #2f63e8;
 
   /* Brand palette — sampled from the GitLeb logo (cyan → blue → purple) */
   --brand-cyan:      #4fb6ff;
@@ -26,11 +26,11 @@
   --brand-gradient:  linear-gradient(135deg, #4fb6ff 0%, #4d89ff 50%, #8b5cf6 100%);
   --brand-gradient-flat: linear-gradient(90deg, #4fb6ff 0%, #4d89ff 50%, #8b5cf6 100%);
 
-  --text-primary:    #f0f0f5;
-  --text-secondary:  #9a9ab0;
-  --text-muted:      #6a6a82;
+  --text-primary:    #0d1226;
+  --text-secondary:  #46506b;
+  --text-muted:      #7a8299;
 
-  --font-display:    'Manrope', sans-serif;
+  --font-display:    'Fraunces', 'Manrope', serif;
   --font-body:       'DM Sans', sans-serif;
   --font-mono:       'JetBrains Mono', monospace;
 
@@ -1380,3 +1380,127 @@ footer {
   .marquee-track { animation: none !important; }
   * { scroll-behavior: auto !important; }
 }
+
+
+/* ============================================================
+   V3 — FIRM LIGHT OVERRIDES
+   Applied over the component layer: light surfaces, ink footer,
+   restrained gradient accents. Rollback = git revert.
+============================================================ */
+
+/* Global surfaces */
+body::after { opacity: 0.015; }
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(13,18,38,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13,18,38,0.028) 1px, transparent 1px);
+}
+
+/* Navigation: white glass */
+nav#navbar.scrolled,
+nav#navbar.solid {
+  background: rgba(255,255,255,0.86);
+  box-shadow: 0 1px 0 rgba(13,18,38,0.06);
+}
+.mobile-overlay { background: rgba(255,255,255,0.97); }
+
+/* Kill ambient orbs — atmosphere reads dev-shop, not firm */
+.orb { display: none; }
+
+/* Display typography: serif gravitas, tighter */
+.hero-h1, h1, h2, .section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.hero-h1 { font-weight: 600; }
+.h1-grad {
+  background: var(--brand-gradient-flat);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* Hero badge: quiet chip */
+.hero-badge {
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(13,18,38,0.05);
+}
+
+/* Capability strip */
+.hero-divider { background: #fff; box-shadow: 0 1px 3px rgba(13,18,38,0.04); }
+
+/* Cards: white, hairline border, soft elevation on hover */
+.svc-card, .work-card, .svc-detail, .val, .founder, .faq-item {
+  background: var(--bg-card);
+  box-shadow: 0 1px 2px rgba(13,18,38,0.04);
+}
+.svc-card:hover, .work-card:hover {
+  box-shadow: 0 16px 40px rgba(13,18,38,0.10);
+  border-color: rgba(13,18,38,0.16);
+}
+.svc-tag, .tl-chip, .stack-pill { background: var(--bg-base); }
+.wc-badge { background: rgba(13,18,38,0.72); color: #fff; }
+
+/* Numbers watermark */
+.about-mark, .tl-marker { color: rgba(13,18,38,0.055); }
+
+/* Buttons: gradient stays the signature; ghost goes ink */
+.btn-primary {
+  box-shadow: 0 4px 14px rgba(47,99,232,0.25);
+}
+.btn-primary:hover { box-shadow: 0 8px 24px rgba(47,99,232,0.32); }
+.btn-ghost {
+  border: 1px solid rgba(13,18,38,0.22);
+  color: var(--text-primary);
+  background: transparent;
+}
+.btn-ghost:hover { border-color: var(--text-primary); background: #fff; }
+
+/* Label tags */
+.label-tag {
+  background: var(--primary-dim);
+  color: var(--primary);
+  border: 1px solid var(--border-accent);
+}
+
+/* Process steps */
+.proc-step { background: #fff; border: 1px solid var(--border); }
+.proc-step:hover { background: var(--bg-card-hover); }
+
+/* CTA band: ink panel — the one dark moment, for contrast and close */
+.cta-band {
+  background: var(--ink);
+  border-radius: 0;
+}
+.cta-band h2, .cta-band .section-title { color: #fff; }
+.cta-band p { color: rgba(255,255,255,0.72); }
+.cta-band .label-tag {
+  background: rgba(255,255,255,0.08);
+  color: #9db4ff; border-color: rgba(255,255,255,0.16);
+}
+.cta-band .btn-ghost {
+  border-color: rgba(255,255,255,0.35); color: #fff;
+}
+.cta-band .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+
+/* Footer: ink block */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.75);
+  border-top: none;
+}
+footer .nav-logo, footer h4 { color: #fff; }
+footer a:hover { color: #fff; }
+footer .footer-copy, footer .fcol a, footer .footer-brand p { color: rgba(255,255,255,0.62); }
+footer .fcol a:hover { color: #fff; }
+footer .soc-btn { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.75); }
+footer .soc-btn:hover { border-color: #fff; color: #fff; }
+
+/* Forms */
+input, textarea, select {
+  background: #fff !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(13,18,38,0.16) !important;
+}
+
+/* Work-card visuals keep their dark canvases — screenshots sit on them */
