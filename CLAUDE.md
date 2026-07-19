@@ -35,7 +35,7 @@ npm run preview    # Preview the production build → http://localhost:4173
 ```
 index.html         # Landing — hero, capabilities index, statement, work, engagement, firm, CTA
 services.html      # 8 practices (anchors: #transformation #bi #mdm #integration #fintech #governance #ai #custom-software [+legacy #automation])
-work.html          # Case rows (alternating): #difco, #steven-portfolio, #truemedia — all link to live sites
+work.html          # Case rows (alternating): #steven-portfolio, #truemedia — all link to live sites. (DIFCO removed July 2026 — not officially signed; do not re-add until the owner confirms.)
 about.html         # Story, principles, founders, why-GitLeb ledger
 process.html       # 4 steps (oversized numerals) + FAQ accordion
 contact.html       # Contact form (service + budget selects) + record-table aside
