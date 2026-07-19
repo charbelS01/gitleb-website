@@ -1636,3 +1636,132 @@ nav#navbar.hidden { transform: translateY(-100%); }
   .services-grid { grid-template-columns: repeat(4, 1fr); }
   .svc-card { padding: 28px 24px; }
 }
+
+/* ============================================================
+   V3.2 — STRUCTURE & RHYTHM REPAIRS
+============================================================ */
+
+/* ---- Service detail blocks: clean editorial layout ---- */
+.svc-detail {
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  padding: 88px 0;
+  align-items: start;
+}
+.svc-index {
+  font-family: var(--font-display);
+  font-size: 0.95rem; font-weight: 600;
+  letter-spacing: 0.12em;
+  background: var(--brand-gradient-flat);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 14px;
+}
+.svc-index::after {
+  content: '';
+  width: 44px; height: 1px;
+  background: linear-gradient(90deg, var(--brand-blue), transparent);
+}
+.svc-detail h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  margin-bottom: 18px;
+}
+.svc-detail .lead { line-height: 1.8; margin-bottom: 22px; }
+.svc-detail .svc-icon { margin-bottom: 28px; }
+
+/* Deliverables: soft panel instead of floating rows */
+.svc-deliverables {
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 28px;
+}
+.svc-deliverable {
+  display: flex; gap: 14px;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+}
+.svc-deliverable:first-child { border-top: none; }
+.svc-deliverable h4 { margin-bottom: 6px; }
+.svc-deliverable p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+@media (max-width: 900px) {
+  .svc-detail { grid-template-columns: 1fr; gap: 36px; padding: 64px 0; }
+}
+
+/* ---- Values list (about + home): breathing room ---- */
+.val {
+  gap: 22px;
+  padding: 28px 4px;
+  background: transparent;
+  box-shadow: none;
+}
+.val-n {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 600;
+  background: var(--brand-gradient-flat);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  min-width: 34px; padding-top: 1px;
+}
+.val-body h3 { font-size: 1.05rem; margin-bottom: 7px; }
+.val-body p { line-height: 1.7; }
+
+/* ---- Why GitLeb: 3-up, always ---- */
+.why-grid { grid-template-columns: repeat(3, 1fr) !important; }
+@media (max-width: 900px) { .why-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 540px) { .why-grid { grid-template-columns: 1fr !important; } }
+
+/* ---- Engagement models (home) ---- */
+.eng-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 22px; margin-top: 56px;
+}
+.eng-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: 0 1px 2px rgba(13,18,38,0.04);
+  display: flex; flex-direction: column;
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+.eng-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(13,18,38,0.10);
+}
+.eng-card.featured {
+  border-color: rgba(47,99,232,0.35);
+  box-shadow: 0 8px 30px rgba(47,99,232,0.10);
+  position: relative;
+}
+.eng-card.featured::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--brand-gradient-flat);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.eng-tag {
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--primary); margin-bottom: 16px;
+}
+.eng-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem; font-weight: 600;
+  letter-spacing: -0.01em; margin-bottom: 12px;
+}
+.eng-card p {
+  color: var(--text-secondary); font-size: 0.92rem;
+  line-height: 1.75; flex: 1;
+}
+.eng-meta {
+  margin-top: 22px; padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+@media (max-width: 900px) { .eng-grid { grid-template-columns: 1fr; } }
+
+/* Four founders: one row on desktop, 2x2 on tablet */
+@media (min-width: 1100px) { .founders-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 640px) and (max-width: 1099px) { .founders-grid { grid-template-columns: repeat(2, 1fr); } }
