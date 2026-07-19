@@ -4,12 +4,14 @@
 Company website for **GitLeb**, a digital transformation & software firm based in Jbeil, Lebanon. **Multi-page** marketing site targeting potential clients — repositioned (July 2026) from dev-studio to **boutique digital transformation firm** to support $50k+ enterprise engagements.
 
 **Positioning & voice (important — keep the copy consistent with this):**
-- Voice: **confident, professional, outcome-focused**. A boutique consultancy+studio talking to executives and owners. "Advised like a consultancy, built like a studio."
-- **Service architecture (order matters):** 01 Digital Transformation Advisory (#transformation) · 02 BI & Analytics (#bi) · 03 ERP & Microsoft Dynamics 365 (#erp) · 04 Data Governance & Compliance (#governance) · 05 AI Strategy & Implementation (#ai) · 06 Websites, Software & Automation (#custom-software — also carries legacy #automation anchor).
+- Voice: **confident, professional, outcome-focused**. A boutique consultancy+studio talking to executives and owners. Short declarative sentences; specific over abstract.
+- **Copy rules (V4):** no em dashes in site copy; no "empower", "seamless", "cutting-edge", "leverage", "in today's fast-paced world", "we don't just X, we Y", no rhetorical triads. If a sentence could appear on any company site, rewrite it.
+- **Service architecture (order matters):** 01 Digital Transformation Advisory (#transformation) · 02 BI & Analytics (#bi) · 03 Master Data Management (#mdm) · 04 Systems Integration & Modernization (#integration) · 05 Financial Systems (#fintech) · 06 Data Governance & Compliance (#governance) · 07 AI Strategy & Implementation (#ai) · 08 Websites, Software & Automation (#custom-software — also carries legacy #automation anchor).
+- **ERP / Microsoft Dynamics 365 removed (July 2026, owner decision):** every reference to ERP and Microsoft/Dynamics implementation was deleted site-wide and the slot replaced by **Systems Integration & Modernization** (#integration). Do NOT reintroduce ERP, Dynamics 365, D365 or SFA anywhere — copy, meta, anchors, form options, sitemap.
 - Credibility anchor: co-founder Mario Sarkis's **real** track record (15+ yrs; directed the Digital Hub of a global shipping group [CMA CGM]; group IT & digital transformation for a regional enterprise; Certified Digital Transformation Officer). Reference it as written on about.html — do NOT inflate it, and do NOT name current-employer engagements as GitLeb clients.
 - Do **NOT** write apologetic / transitional copy. Banned phrases: "young studio", "just getting started", "early-stage", "small studio", "we're new", "as we grow", "for now".
 - Do **NOT** fabricate seniority, headcount, client logos, or delivered-outcome metrics. Confidence comes from precise capability claims and the founders' real history.
-- The work page presents projects as confident capability examples without disclaimers. As real engagements ship, replace/augment with them.
+- The work page presents projects as confident capability examples without disclaimers. All three linked live sites are real builds. As real engagements ship, replace/augment with them.
 
 ## Project Location
 ```
@@ -26,51 +28,52 @@ npm run preview    # Preview the production build → http://localhost:4173
 ## Tech Stack
 - **Pure HTML/CSS/JS** — no framework
 - **Vite** — dev server and bundler, configured for multi-page (rollupOptions.input)
-- **Google Fonts** — Manrope (headings) + DM Sans (body) + JetBrains Mono (code only)
+- **Google Fonts** — Archivo (display) + Inter (body) + IBM Plex Mono (labels/numerals/data)
 - **Deployment** — `vercel.json` configured (cleanUrls enabled), ready for Vercel
 
 ## File Structure
 ```
-index.html      # Landing — condensed sections, links to subpages
-services.html   # Full expanded 6 services (anchored: #custom-software, #devops, #api, #cloud, #ai, #automation)
-work.html       # Full portfolio / case studies grid (6 projects)
-about.html      # Story, values, "Why GitLeb"
-process.html    # Detailed 4-step timeline + FAQ accordion
-contact.html    # Contact form (with budget field) + contact aside
-styles.css      # ALL site styles — shared across pages
-main.js         # Shared JS — navbar scroll, mobile nav, scroll reveal, FAQ, contact form
-vite.config.js  # Multi-page entry config
-vercel.json     # Hosting config — cleanUrls: true
+index.html         # Landing — hero, capabilities index, statement, work, engagement, firm, CTA
+services.html      # 8 practices (anchors: #transformation #bi #mdm #integration #fintech #governance #ai #custom-software [+legacy #automation])
+work.html          # Case rows (alternating): #difco, #steven-portfolio, #truemedia — all link to live sites
+about.html         # Story, principles, founders, why-GitLeb ledger
+process.html       # 4 steps (oversized numerals) + FAQ accordion
+contact.html       # Contact form (service + budget selects) + record-table aside
+styles.css         # ALL site styles — shared across pages
+main.js            # Shared JS — core behaviors + motion primitives
+public/sitemap.xml # Clean URLs (/, /services, /work, /about, /process, /contact)
+public/robots.txt  # Allow all + sitemap pointer
+vite.config.js     # Multi-page entry config
+vercel.json        # Hosting config — cleanUrls: true
 ```
 
-**Important:** Do NOT add a `<style>` block or inline scripts back into individual pages — always edit the shared `styles.css` / `main.js`. The only inline styles allowed are one-off layout tweaks (e.g. `style="max-width:620px"`).
+**Important:** Do NOT add a `<style>` block or inline scripts back into individual pages — always edit the shared `styles.css` / `main.js`. (Exception: the Meta Pixel bootstrap snippet lives inline in each `<head>` by necessity.)
 
-## Design System (V3 — Firm Light)
+## Design System (V4 — "Institutional Ledger", July 2026 rebuild)
 
-Aesthetic: consultancy-grade light theme. Ink (#0d1226) on warm white (#f7f8fb); Fraunces serif for display headings; brand gradient reserved for accents (hero keyword, buttons, hairlines). Footer and CTA band are deliberate ink panels. Motion layer in main.js: cursor aurora, card spotlight, magnetic buttons, scroll progress, nav auto-hide — all gated on pointer:fine and prefers-reduced-motion.
+Aesthetic: Wall-Street-tier institutional. Near-black ink canvas (#070b14) alternating with off-white paper bands (#f4f5f8); 1px hairline rules do the structural work; deep negative space; strict typographic hierarchy with hard weight contrast (Archivo 300 vs 600). The brand gradient is **rationed**: one keyword per hero/statement (`.grad-word`), the eyebrow dash, the statement beam, the scroll-progress hairline, and the logo mark. Nothing else gets color.
 
 ### Brand palette (sampled from the GitLeb logo: cyan → blue → purple)
 ```css
---brand-cyan:      #4fb6ff   /* the "G" cyan */
---brand-blue:      #4d89ff   /* mid blue, same as --primary */
---brand-purple:    #8b5cf6   /* the "b" + git-branch icon purple */
---brand-gradient:  linear-gradient(135deg, #4fb6ff 0%, #4d89ff 50%, #8b5cf6 100%)
---brand-gradient-flat: linear-gradient(90deg, #4fb6ff, #4d89ff, #8b5cf6)
+--cyan:   #4fb6ff   /* the "G" cyan */
+--blue:   #4d89ff   /* mid blue */
+--purple: #8b5cf6   /* the "b" + git-branch icon purple */
+--grad:      linear-gradient(135deg, #4fb6ff 0%, #4d89ff 50%, #8b5cf6 100%)
+--grad-flat: linear-gradient(90deg, #4fb6ff, #4d89ff, #8b5cf6)
 ```
-The brand gradient is used for: hero h1 highlighted word, all `em` accents inside headings, the primary button background, the `.logo-mark` background, and the ambient orbs (which use individual cyan/blue/purple stops with low opacity).
+Only these + neutral inks/papers/greys are allowed. No outside colors (the WhatsApp FAB's #25d366 is the sole exception, brand-mandated).
 
-### Base palette
+### Neutrals & text
 ```css
---primary:       #4d89ff   /* main blue accent — same as --brand-blue */
---primary-dim:   rgba(77,137,255,0.09)
---primary-glow:  rgba(77,137,255,0.45)
---bg-base:       #020208
---bg-surface:    #06060f
---bg-card:       #0b0b1a
---text-primary:  #f0f0f5
---text-secondary:#9a9ab0
---text-muted:    #6a6a82  /* bumped from #44445a for WCAG contrast */
+--ink-0: #04060b   /* footer / deepest */
+--ink-1: #070b14   /* body + primary dark bands */
+--ink-2: #0c1120   /* secondary dark bands */
+--paper: #f4f5f8   /* primary light bands */
+--paper-2: #eceef3 /* secondary light bands */
+--t-dark: #f2f4fa / --t-dark-2: #a3abc0   /* text on ink */
+--t-light: #0a0e1a / --t-light-2: #444d66 /* text on paper */
 ```
+Bands set contextual vars (`--tx`, `--tx2`, `--line`, `--line-soft`) via `.band-ink/.band-ink2/.band-paper/.band-paper2` — components consume the vars, so any component works on any band.
 
 ### Logo
 - Source: `public/logo.svg` (gradient square + white git-branch icon)
@@ -79,93 +82,83 @@ The brand gradient is used for: hero h1 highlighted word, all `em` accents insid
 
 ### Fonts
 ```css
---font-display: 'Manrope'        /* headings, section titles */
---font-body:    'DM Sans'        /* body text, UI labels, tags */
---font-mono:    'JetBrains Mono' /* code snippets, tech glyphs */
+--font-display: 'Archivo'        /* headings; weight contrast 300 vs 600 is the signature */
+--font-body:    'Inter'          /* body text */
+--font-mono:    'IBM Plex Mono'  /* eyebrows, numerals, tags, record tables */
 ```
 
-### Spacing
-- Section padding: `140px 0` desktop → `80px 0` mobile
-- Container: `max-width: 1280px`, padding `48px` desktop → `20px` mobile
-- Base grid unit: `8px`
+### Layout & anti-repetition rule
+`.shell` = max-width 1360px, padding-inline clamp(20px, 5vw, 64px). Sections are `.band` (padding-block clamp(88px, 12vh, 150px)). **No two sections on a page share a layout skeleton** — current index order: scroll-linked full-viewport hero → sticky-left/scrolling-right capabilities index → full-bleed statement → offset editorial work grid → rule-divided engagement columns → asymmetric firm split + record table → edge-anchored CTA. Keep it that way when adding sections.
 
 ### Reusable utilities (use these, don't reinvent)
-- `.section-title` / `.section-title.sm` — standard section headings
-- `.section-eyebrow` + `.label-tag` — eyebrow label above headings
-- `.btn .btn-primary` / `.btn-ghost` / `.btn-lg`
-- `.page-hero` — interior page hero (top of all subpages)
-- `.cta-band` — reusable bottom-of-page CTA section
-- `.svc-card` / `.svc-detail` — service cards (compact / detailed)
-- `.work-card` — case-study card
-- `.faq-item` — accordion item (JS toggles `.open` class)
-- `.reveal` + `.d1`–`.d5` — scroll-reveal animation with staggered delays
+- `.eyebrow` — mono label with gradient dash
+- `.h2`, `.body-lg`, `.body`, `.grad-word`
+- `.btn-solid` (paper-on-ink) / `.btn-inverse` (ink-on-paper) / `.btn-key` (hairline, header)
+- `.link-arrow` — gradient-underline link with arrow micro-interaction
+- `.page-head` (+ `.page-head-tight`) — interior page hero
+- `.cta` + `.cta-title` / `.cta-row` — bottom-of-page CTA band
+- `.rec-row` / `.rec-k` / `.rec-v` — ledger record rows (firm table, contact aside)
+- `.reveal` + `.d1`–`.d5` — staggered scroll reveal (hidden states gated on `body.js` so no-JS still renders)
+- `.magnetic` — magnetic hover surface (JS)
+- `[data-parallax="0.1"]` — depth offset (JS writes the `translate` property, never `transform`, so CSS rotations survive)
+- `.faq-item` — accordion item (JS toggles `.open`)
 - `.skip-link` — a11y skip-to-content link
 
+### Motion system (in main.js — primitives, not one-off hacks)
+Tokens in CSS: `--ease-out: cubic-bezier(.22,1,.36,1)`, `--ease-io`, durations .3s/.45s/.6s. Primitives: `initReveal` (IO + stagger), shared **scroll scheduler** (one rAF per scroll burst — NEVER a perpetual rAF loop; a perpetual loop blocks automation/idle detection and wastes battery), scroll progress hairline, nav auto-hide, scroll-linked hero (`--hp` custom property), parallax, magnetic. All gated on `prefers-reduced-motion`; pointer effects also on `pointer: fine`. Transform/opacity only — no layout-thrashing animation.
+
 ## Landing Page Section Order (narrative-first)
-1. **Nav** — sticky, glassmorphism on scroll
-2. **Hero** — heading + honest capability strip + CTA (primary = "Start a Project")
-3. **Marquee** — tech stack strip
-4. **Services** — condensed (6 cards, "Learn more →" → services.html anchors)
-5. **Work** — 3 featured projects → work.html
-6. **Process** — condensed 4 steps → process.html
-7. **About** — short blurb + values list → about.html
-8. **CTA band** — final conversion push
-9. **Footer**
+1. **Header** — fixed, transparent over hero, ink+blur once scrolled (`.scrolled`), auto-hides scrolling down; interior pages use `.is-solid`
+2. **Hero** — scroll-linked, full viewport; capability index strip at its base
+3. **Capabilities** — sticky-left intro + 8 numbered rows → services.html anchors
+4. **Statement** — full-bleed declaration with parallax gradient beam
+5. **Work** — offset editorial grid, 3 featured projects → work.html
+6. **Engagement** — 3 rule-divided columns (sprint / program / retainer)
+7. **Firm** — asymmetric split + record table → about.html
+8. **CTA band** — edge-anchored type, final conversion push
+9. **Footer** — ink-0, 8 service links + company + contact
 
 ## Key JS Behaviors (in main.js)
-- **Sticky nav** — adds `.scrolled` class after 50px; interior pages get `.solid` always
-- **Active nav** — uses `data-nav="<page>.html"` attribute to mark current page link
-- **Mobile nav** — hamburger toggles `.open` on `#js-mobile-nav`; Esc closes
-- **Scroll reveal** — `IntersectionObserver` adds `.in` to `.reveal` elements
+- **body.js / body.js-motion** — added on JS boot; CSS hides `.reveal` only under `body.js` (no-JS safety)
+- **Active nav** — `data-nav="<page>.html"` marks the current page link
+- **Mobile nav** — hamburger toggles `.open` on `#js-mobile-nav`; Esc closes; numbered full-screen overlay
 - **FAQ accordion** — `.faq-q` button toggles `.faq-item.open`
-- **Contact form** — validates inline, then POSTs JSON to `/api/contact`. **Meta Pixel `Lead` fires only on confirmed `res.ok`** (clean ad attribution). If the request fails (e.g. backend not yet built), falls back to opening a prefilled `mailto:` — the fallback intentionally does **not** fire `Lead`. **TODO:** build the `/api/contact` Vercel serverless function (Resend / SendGrid / Postmark) so Lead actually starts firing in production
-- **WhatsApp tracking** — every `a[href*="wa.me"]` / `a[href*="whatsapp.com"]` click fires `fbq('trackCustom', 'WhatsApp_Click')` site-wide so audiences and ad optimisation can use WhatsApp intent
-- **Reduced motion** — `prefers-reduced-motion` disables transitions + marquee (CSS only now)
+- **Contact form** — validates inline, then POSTs JSON to `/api/contact`. **Meta Pixel `Lead` fires only on confirmed `res.ok`** (clean ad attribution). If the request fails (backend not yet built), falls back to a prefilled `mailto:` — the fallback intentionally does **not** fire `Lead`. **TODO:** build the `/api/contact` Vercel serverless function (Resend / SendGrid / Postmark)
+- **WhatsApp tracking** — every `a[href*="wa.me"]` / `a[href*="whatsapp.com"]` click fires `fbq('trackCustom', 'WhatsApp_Click')` site-wide
+- **Reduced motion** — disables reveals, parallax, hero link, magnetic, scroll scheduler; CSS also zeroes transitions/animations
 
 ## Responsive Breakpoints
 | Breakpoint | Changes |
 |---|---|
-| `1024px` | Services/process/testimonials → 2-col |
-| `920px`  | Nav → hamburger |
-| `768px`  | All sections single-col, padding 80px |
-| `480px`  | Heading sizes reduce further |
+| `1100px` | Founders → 2-col |
+| `1024px` | Sticky rails become static; capabilities/firm/story/faq/contact → 1-col; services rail hidden; work grid stacks |
+| `920px`  | Nav → hamburger; engagement columns → stacked rows; case rows → 1-col |
+| `720px`  | Bands 72px padding; hero index stacks; footer 1-col; steps stack |
+| `600px`  | Header "Start a project" button hidden (hamburger remains) |
+| `480px`  | Display sizes reduce further |
 
 ## Decisions Made (don't undo without reason)
 - **No framework** — pure HTML/CSS/JS by choice (fast, zero runtime dependencies)
-- **Multi-page** — split for SEO, focused content per page, and reduced single-scroll fatigue. Old single-page `#anchor` nav was replaced with real page URLs
+- **Multi-page** — split for SEO and focused content; same six URLs as before (don't rename files — vite.config + vercel cleanUrls depend on them)
 - **Shared styles.css / main.js** — single source of truth across all pages. Never duplicate styles into a page
-- **No custom cursor** — removed in v2 (was an a11y/UX liability for a B2B vendor). Don't bring it back
-- **Honest proof** — hero "stats" are capability statements, not fabricated numbers. No fake testimonials anywhere. Work page is framed as illustrative "what we love to build" examples — NOT delivered client case studies
-- **Early-stage honesty** — never claim seniority, years of experience, or invented client outcomes. Lead with Websites & Custom Software + Process Automation as core focus; everything else is "expanding capabilities"
-- **Hero primary CTA = "Start a Project"** — not "View Our Work" (sale > browse)
-- **Tech glyphs are typographic** (mono text), not emoji — emoji renders inconsistently and looks unprofessional
-- **Manrope + DM Sans** — chosen over Bricolage Grotesque (too techy) and Syne (too blocky)
-- **JetBrains Mono only for code/tech marks** — not for UI labels
-- **Blue #4d89ff** — replaced original mint green #00ff88 for professional B2B look
-- **Centered hero** — replaced left-aligned 2-col grid
+- **V4 rebuild (July 2026)** — replaced the V3 "Firm Light" theme (Fraunces/Manrope/DM Sans, warm white) wholesale per owner brief: institutional ink+paper, Archivo/Inter/IBM Plex Mono, hairline structure, rationed gradient. The palette survived; the design did not.
+- **ERP & Dynamics 365 practice removed** — replaced by Systems Integration & Modernization (#integration). Old #erp anchor intentionally gone.
+- **No custom cursor** — removed in v2 (a11y/UX liability). Don't bring it back
+- **Honest proof** — capability statements, not fabricated numbers. No fake testimonials anywhere
+- **Hero primary CTA = "Start a project"** — sale > browse
+- **No emoji glyphs** — typographic marks only (mono text, inline SVG)
+- **Perpetual rAF loops banned in main.js** — use the shared scroll scheduler (rAF per scroll burst). A permanent loop kept the page from ever going idle and hung browser automation
 - **Vercel `rewrites` removed** — the old SPA catch-all would have broken subpages. Now uses `cleanUrls: true`
-
-## Skills Installed (in `~/.claude/skills/`)
-All of these are active and inform design/code decisions:
-- `ui-ux-pro-max` — design system, palettes, typography
-- `web-design-guidelines` — Vercel web interface guidelines (live-fetch)
-- `premium-saas-design` — SaaS landing page patterns
-- `brand-systems` — brand identity consistency
-- `design-principles` — visual hierarchy, gestalt
-- `bencium-innovative-ux-designer` — creative UI guidance
-- `vercel-composition-patterns` — component composition
-- `vercel-react-best-practices` — React/Next.js patterns
-- `accesslint-audit` — WCAG 2.2 accessibility auditing
-- `git-workflow` — conventional commits, PR workflow
 
 ## Hosting — Next Steps
 - `vercel.json` configured with `cleanUrls: true` (so `/services` serves `services.html`)
 - Push repo to GitHub, connect at vercel.com, add custom domain in Vercel dashboard
-- **Before launch:** wire the contact form to a real backend (Formspree, Resend, or custom). The current mailto fallback is marked with a `TODO` in `main.js`
-- **Before launch:** provide real client logos / case-study references if available
-- Social links in footer currently point to `#` — set real GitHub/LinkedIn/X URLs
+- **Before launch:** wire the contact form to a real backend (`/api/contact` — see TODO in main.js)
+- **Before launch:** add a raster `og:image` (1200×630) — pages currently use `twitter:card summary` with no image
+- Footer social: Instagram is live (`instagram.com/gitlebanon`); add GitHub/LinkedIn when real
 
-## Contact Info (placeholder — update before launch)
+## Contact Info (live on site)
 - Email: `inquiries@gitleb.dev`
-- Phone: `+961 1 234 567`
+- Phone: `+961 81 499 473`
+- WhatsApp: `wa.me/96181499473`
 - Location: Jbeil, Lebanon

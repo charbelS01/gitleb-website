@@ -2,17 +2,33 @@
 
 /* ============================================================
    GitLeb — shared site JS (loaded on every page)
+
+   Structure:
+   1. Environment gates (reduced motion / pointer type)
+   2. Core behaviors  (nav, mobile menu, FAQ, form, tracking)
+   3. Motion primitives (reveal, scrollLink, parallax, magnetic)
+      — each primitive is a small reusable function, applied
+        via classes/data-attributes, never a one-off hack.
 ============================================================ */
 
-/* ── Navbar scroll state ── */
+/* ── 1. Environment ── */
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE_POINTER = window.matchMedia('(pointer: fine)').matches;
+
+// Confirms JS is running: CSS only hides .reveal content under body.js,
+// so a no-JS visit still renders the full page.
+document.body.classList.add('js');
+if (!REDUCED) document.body.classList.add('js-motion');
+
+/* ── 2a. Navbar scroll state ── */
 const navbar = document.getElementById('navbar');
 if (navbar) {
-  const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
+  const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 40);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
 
-/* ── Active nav link (based on current page) ── */
+/* ── 2b. Active nav link ── */
 (function setActiveNav() {
   let path = window.location.pathname.split('/').pop() || 'index.html';
   if (path === '') path = 'index.html';
@@ -21,9 +37,9 @@ if (navbar) {
   });
 })();
 
-/* ── Mobile nav ── */
-const mobileNav   = document.getElementById('js-mobile-nav');
-const hamburger   = document.getElementById('js-hamburger');
+/* ── 2c. Mobile nav ── */
+const mobileNav = document.getElementById('js-mobile-nav');
+const hamburger = document.getElementById('js-hamburger');
 const mobileClose = document.getElementById('js-mobile-close');
 
 if (hamburger && mobileNav) {
@@ -41,28 +57,13 @@ if (hamburger && mobileNav) {
   if (mobileClose) mobileClose.addEventListener('click', closeNav);
   mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+  // The hamburger disappears above 920px; make sure the overlay goes with it.
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 920) closeNav();
+  }, { passive: true });
 }
 
-/* ── Scroll reveal (IntersectionObserver) ── */
-const revealEls = document.querySelectorAll('.reveal');
-if (revealEls.length) {
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        revealObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
-  revealEls.forEach(el => revealObs.observe(el));
-}
-
-/* ── Reveal above-the-fold elements immediately on load ── */
-window.addEventListener('load', () => {
-  document.querySelectorAll('.hero .reveal, .page-hero .reveal').forEach(el => el.classList.add('in'));
-});
-
-/* ── FAQ accordion ── */
+/* ── 2d. FAQ accordion ── */
 document.querySelectorAll('.faq-item').forEach(item => {
   const q = item.querySelector('.faq-q');
   const a = item.querySelector('.faq-a');
@@ -75,17 +76,16 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-/* ── WhatsApp clicks: fire Pixel custom event ──
+/* ── 2e. WhatsApp clicks: fire Pixel custom event ──
    Targets any wa.me / whatsapp.com link site-wide via trackCustom,
-   so audiences and ad optimisation can use WhatsApp intent.
-*/
-document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(function (el) {
-  el.addEventListener('click', function () {
+   so audiences and ad optimisation can use WhatsApp intent. */
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(el => {
+  el.addEventListener('click', () => {
     if (window.fbq) { fbq('trackCustom', 'WhatsApp_Click'); }
   });
 });
 
-/* ── Contact form ──
+/* ── 2f. Contact form ──
    Posts JSON to /api/contact. Meta Pixel 'Lead' fires ONLY on a
    confirmed res.ok — keeps ad attribution clean.
 
@@ -93,8 +93,7 @@ document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(f
    that emails inquiries@gitleb.dev via Resend / SendGrid / etc).
    Until that ships, the catch block falls back to opening the user's
    email client so the form stays usable. The fallback intentionally
-   does NOT fire Lead — only confirmed backend success counts.
-============================================================ */
+   does NOT fire Lead — only confirmed backend success counts. */
 const form = document.getElementById('contact-form');
 if (form) {
   const submitBtn = document.getElementById('submit-btn');
@@ -108,17 +107,16 @@ if (form) {
     : '';
   const resetBtnLater = () => setTimeout(() => {
     if (!submitBtn) return;
-    submitBtn.textContent = 'Send Message →';
+    submitBtn.textContent = 'Send message →';
     submitBtn.disabled = false;
     submitBtn.style.opacity = '1';
-    submitBtn.style.background = '';
   }, 3500);
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name    = form.querySelector('#cf-name');
-    const email   = form.querySelector('#cf-email');
+    const name = form.querySelector('#cf-name');
+    const email = form.querySelector('#cf-email');
     const message = form.querySelector('#cf-message');
 
     let ok = true;
@@ -138,14 +136,14 @@ if (form) {
 
     const company = form.querySelector('#cf-company');
     const service = form.querySelector('#cf-service');
-    const budget  = form.querySelector('#cf-budget');
+    const budget = form.querySelector('#cf-budget');
 
     const formData = {
-      name:    name.value.trim(),
-      email:   email.value.trim(),
+      name: name.value.trim(),
+      email: email.value.trim(),
       company: company?.value.trim() || '',
       service: getSelectText(service),
-      budget:  getSelectText(budget),
+      budget: getSelectText(budget),
       message: message.value.trim(),
     };
 
@@ -164,7 +162,7 @@ if (form) {
 
       if (res.ok) {
         // Meta Pixel Lead — fires only on confirmed success
-        if (typeof window !== 'undefined' && window.fbq) {
+        if (window.fbq) {
           window.fbq('track', 'Lead', {
             content_name: formData.service,
             content_category: formData.budget,
@@ -187,7 +185,7 @@ if (form) {
         `Email: ${formData.email}`,
         formData.company ? `Company: ${formData.company}` : null,
         formData.service ? `Service: ${formData.service}` : null,
-        formData.budget  ? `Budget: ${formData.budget}`   : null,
+        formData.budget ? `Budget: ${formData.budget}` : null,
         '',
         'Project details:',
         formData.message,
@@ -209,87 +207,118 @@ if (form) {
 }
 
 /* ============================================================
-   V3.1 — MOTION ENGINE
-   Aurora field, grid glow, card spotlight, magnetic buttons,
-   scroll progress, nav auto-hide.
-   All pointer effects: desktop-only, reduced-motion aware.
+   3. MOTION PRIMITIVES
+   All scroll work batched through one rAF loop; transform and
+   opacity only, so mid-range mobile stays at frame rate.
 ============================================================ */
-(() => {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-  /* ---- Scroll progress hairline ---- */
+/* ── Primitive: reveal(selector) — staggered entry on scroll ── */
+function initReveal() {
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  if (REDUCED) { els.forEach(el => el.classList.add('in')); return; }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+  els.forEach(el => obs.observe(el));
+
+  // Above-the-fold content shows immediately.
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .reveal, .page-head .reveal').forEach(el => el.classList.add('in'));
+  });
+}
+initReveal();
+
+/* ── Shared scroll scheduler for scroll-linked primitives ──
+   One rAF per scroll burst (not a perpetual loop), so the page
+   is fully idle when the user is not scrolling. */
+const scrollJobs = [];
+let scrollTicking = false;
+function runScrollJobs() {
+  const y = window.scrollY;
+  for (const job of scrollJobs) job(y);
+  scrollTicking = false;
+}
+function onFrameScroll(job) {
+  if (REDUCED) return;
+  scrollJobs.push(job);
+  requestAnimationFrame(runScrollJobs);
+}
+window.addEventListener('scroll', () => {
+  if (!scrollJobs.length || scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(runScrollJobs);
+}, { passive: true });
+
+/* ── Primitive: scroll progress hairline ── */
+(function initProgress() {
   const prog = document.createElement('div');
   prog.className = 'scroll-progress';
   prog.setAttribute('aria-hidden', 'true');
   document.body.appendChild(prog);
-  const updateProg = () => {
-    const h = document.documentElement.scrollHeight - innerHeight;
-    prog.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+  const update = (y) => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
   };
-  addEventListener('scroll', updateProg, { passive: true });
-  updateProg();
+  if (REDUCED) { update(window.scrollY); window.addEventListener('scroll', () => update(window.scrollY), { passive: true }); }
+  else onFrameScroll(update);
+})();
 
-  /* ---- Nav auto-hide (down = hide, up = show) ---- */
-  const navEl = document.getElementById('navbar');
-  let lastY = scrollY;
-  addEventListener('scroll', () => {
-    const y = scrollY;
-    if (navEl) {
-      if (y > 320 && y > lastY + 4) navEl.classList.add('hidden');
-      else if (y < lastY - 4 || y < 320) navEl.classList.remove('hidden');
-    }
+/* ── Primitive: nav auto-hide (down = hide, up = show) ── */
+(function initNavHide() {
+  if (!navbar) return;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 320 && y > lastY + 4) navbar.classList.add('hidden');
+    else if (y < lastY - 4 || y < 320) navbar.classList.remove('hidden');
     lastY = y;
   }, { passive: true });
+})();
 
-  if (reduced || !finePointer) return;   // pointer effects below this line only
-  document.body.classList.add('has-pointer');
-
-  /* ---- Aurora field: blobs drift lazily toward the cursor ---- */
-  const aurora = document.createElement('div');
-  aurora.className = 'aurora';
-  aurora.setAttribute('aria-hidden', 'true');
-  aurora.innerHTML = '<span class="a1"></span><span class="a2"></span><span class="a3"></span>';
-  document.body.prepend(aurora);
-  const blobs = [...aurora.children].map((el, i) => ({
-    el, x: 0, y: 0, f: [0.035, 0.022, 0.05][i], amp: [46, 70, 34][i]
-  }));
-
-  let mx = innerWidth / 2, my = innerHeight / 3;
-  const root = document.documentElement;
-  addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    root.style.setProperty('--mx', mx + 'px');
-    root.style.setProperty('--my', my + 'px');
-  }, { passive: true });
-
-  (function drift() {
-    const nx = (mx / innerWidth - 0.5), ny = (my / innerHeight - 0.5);
-    for (const b of blobs) {
-      b.x += (nx * b.amp - b.x) * b.f;
-      b.y += (ny * b.amp - b.y) * b.f;
-      b.el.style.transform = `translate(${b.x}px, ${b.y}px)`;
-    }
-    requestAnimationFrame(drift);
-  })();
-
-  /* ---- Card spotlight ---- */
-  document.querySelectorAll('.svc-card, .work-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--cx', (e.clientX - r.left) + 'px');
-      card.style.setProperty('--cy', (e.clientY - r.top) + 'px');
-    }, { passive: true });
+/* ── Primitive: scroll-linked hero (sets --hp 0→1 while leaving) ── */
+(function initHeroLink() {
+  if (REDUCED) return;
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  onFrameScroll(y => {
+    const p = Math.min(Math.max(y / (hero.offsetHeight * 0.9), 0), 1);
+    hero.style.setProperty('--hp', p.toFixed(4));
   });
+})();
 
-  /* ---- Magnetic buttons ---- */
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r = btn.getBoundingClientRect();
+/* ── Primitive: parallax — [data-parallax="speed"] depth offsets ── */
+(function initParallax() {
+  if (REDUCED) return;
+  const els = [...document.querySelectorAll('[data-parallax]')];
+  if (!els.length) return;
+  const items = els.map(el => ({ el, speed: parseFloat(el.dataset.parallax) || 0.1 }));
+  // Uses the standalone `translate` property so any CSS `transform`
+  // (e.g. the statement beam's rotation) is preserved.
+  onFrameScroll(() => {
+    for (const it of items) {
+      const r = it.el.getBoundingClientRect();
+      const mid = r.top + r.height / 2 - window.innerHeight / 2;
+      it.el.style.translate = `0 ${(-mid * it.speed).toFixed(1)}px`;
+    }
+  });
+})();
+
+/* ── Primitive: magnetic — .magnetic surfaces follow the cursor ── */
+(function initMagnetic() {
+  if (REDUCED || !FINE_POINTER) return;
+  document.querySelectorAll('.magnetic').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
       const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
       const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-      btn.style.transform = `translate(${dx * 4}px, ${dy * 3}px)`;
+      el.style.transform = `translate(${(dx * 4).toFixed(1)}px, ${(dy * 3).toFixed(1)}px)`;
     }, { passive: true });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
   });
 })();
